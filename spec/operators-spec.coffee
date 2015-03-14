@@ -1739,7 +1739,18 @@ describe "Operators", ->
       expect(editor.getText()).toBe "12abcde\n67890"
 
     it "can be repeated", ->
-      # FIXME this is not implemented yet
+      keydown "R", shift: true
+      editor.insertText "ab"
+      keydown 'escape'
+      editor.setCursorBufferPosition([1, 2])
+      keydown '.'
+      expect(editor.getText()).toBe "12ab5\n67ab0"
+      expect(editor.getCursorScreenPosition()).toEqual [1, 3]
+
+      editor.setCursorBufferPosition([0, 4])
+      keydown '.'
+      expect(editor.getText()).toBe "12abab\n67ab0"
+      expect(editor.getCursorScreenPosition()).toEqual [0, 5]
 
     it "can be interrupted by arrow keys and behave as insert for repeat", ->
       # FIXME don't know how to test this (also, depends on PR #568)
