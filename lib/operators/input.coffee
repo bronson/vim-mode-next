@@ -28,6 +28,24 @@ class Insert extends Operator
 
   inputOperator: -> true
 
+class ReplaceMode extends Insert
+
+  execute: ->
+    if @typingCompleted
+      # FIXME this inserts rather than replaces
+      return unless @typedText? and @typedText.length > 0
+      @editor.transact =>
+        @editor.getBuffer().insert(
+          @editor.getCursorBufferPosition(),
+          @typedText,
+          normalizeLineEndings: true
+        )
+        cursor = @editor.getLastCursor()
+        cursor.moveLeft() unless cursor.isAtBeginningOfLine()
+    else
+      @vimState.activateReplaceMode()
+      @typingCompleted = true
+
 class InsertAfter extends Insert
   execute: ->
     @editor.moveRight() unless @editor.getLastCursor().isAtEndOfLine()
@@ -189,6 +207,7 @@ module.exports = {
   InsertAtBeginningOfLine,
   InsertAboveWithNewline,
   InsertBelowWithNewline,
+  ReplaceMode,
   Change,
   Substitute,
   SubstituteLine
