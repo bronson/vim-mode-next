@@ -1,6 +1,7 @@
 _ = require 'underscore-plus'
 {Point, Range} = require 'atom'
 settings = require '../settings'
+Utils = require '../utils'
 
 WholeWordRegex = /\S+/
 WholeWordOrEmptyLineRegex = /^\s*$|\S+/
@@ -89,13 +90,7 @@ class Motion
     selection.modifySelection => @moveCursor(selection.cursor, count, options)
 
   ensureCursorIsWithinLine: (cursor) ->
-    return if @vimState.mode is 'visual' or not cursor.selection.isEmpty()
-    {goalColumn} = cursor
-    {row, column} = cursor.getBufferPosition()
-    lastColumn = cursor.getCurrentLineBufferRange().end.column
-    if column >= lastColumn - 1
-      cursor.setBufferPosition([row, Math.max(lastColumn - 1, 0)])
-    cursor.goalColumn ?= goalColumn
+    Utils.ensureCursorIsWithinLine(cursor, @vimState)
 
   isComplete: -> true
 
