@@ -61,7 +61,7 @@ class Till extends Find
   moveSelectionInclusively: (selection, count, options) ->
     super
     if selection.isEmpty() and @selectAtLeastOne
-      selection.modifySelection =>
+      selection.modifySelection ->
         selection.cursor.moveRight()
 
 module.exports = {Find, Till}
