@@ -144,11 +144,45 @@ class SelectInsideParagraph extends TextObject
   constructor: (@editor, @inclusive) ->
   select: ->
     for selection in @editor.getSelections()
-      range = selection.cursor.getCurrentParagraphBufferRange()
-      if range?
-        selection.setBufferRange(range)
-        selection.selectToBeginningOfNextParagraph()
+      if @isBetweenParagraphs(selection)
+        startRow = selection.getBufferRange().start.row
+        @expandSelectionFromRow(selection, startRow, (line) =>
+          @isEmptyOrWhitespaceLine(line)
+        )
+      else
+        startRow = selection.cursor.getBufferPosition().row
+        @expandSelectionFromRow(selection, startRow, (line) =>
+          !@isEmptyOrWhitespaceLine(line)
+        )
       true
+
+  isBetweenParagraphs: (selection) ->
+    return @enteredVisualModeOnBlankLine(selection) || @bufferRowsAreEmptyOrWhitespace(selection)
+
+  bufferRowsAreEmptyOrWhitespace: (selection) ->
+    rows = selection.getBufferRange().getRows()
+    for row in rows
+      unless @isEmptyOrWhitespaceLine(@editor.lineTextForBufferRow(row))
+        return false
+    true
+
+  # If we enter visual mode on a blank line, the cursor is moved to next line.
+  # This means that that if we enter visual mode on the last empty line before a
+  # paragraph, the cursor will be inside the paragraph.
+  enteredVisualModeOnBlankLine: (selection) ->
+    range = selection.getBufferRange()
+    return range.getRows().length == 2 && range.start.column == 0 && range.end.column == 0
+
+  expandSelectionFromRow: (selection, startRow, isValidLine) ->
+    bottomRow = startRow
+    topRow = startRow
+    while (isValidLine(@editor.lineTextForBufferRow(bottomRow)))
+      bottomRow++
+    while (isValidLine(@editor.lineTextForBufferRow(topRow)))
+      topRow--
+    selection.setBufferRange(new Range([topRow+1, 0], [bottomRow, 0]))
+
+  isEmptyOrWhitespaceLine: (line) -> !(/\S/.test(line))
 
 class SelectAParagraph extends TextObject
   constructor: (@editor, @inclusive) ->
@@ -159,6 +193,15 @@ class SelectAParagraph extends TextObject
         selection.setBufferRange(range)
         selection.selectToBeginningOfNextParagraph()
         selection.selectDown()
-      true
+        true
 
-module.exports = {TextObject, SelectInsideWord, SelectInsideQuotes, SelectInsideBrackets, SelectAWord, SelectInsideParagraph, SelectAParagraph}
+
+module.exports = {
+  TextObject,
+  SelectInsideWord,
+  SelectInsideQuotes,
+  SelectInsideBrackets,
+  SelectAWord,
+  SelectInsideParagraph,
+  SelectAParagraph
+}

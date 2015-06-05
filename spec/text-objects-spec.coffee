@@ -1,6 +1,6 @@
 helpers = require './spec-helper'
 
-describe "TextObjects", ->
+fdescribe "TextObjects", ->
   [editor, editorElement, vimState] = []
 
   beforeEach ->
@@ -167,7 +167,7 @@ describe "TextObjects", ->
   describe "the 'ip' text object", ->
     beforeEach ->
       editor.setText("\nParagraph-1\nParagraph-1\nParagraph-1\n\n")
-      editor.setCursorScreenPosition([2, 2])
+      editor.setCursorBufferPosition([2, 2])
 
     it "applies operators inside the current paragraph in operator-pending mode", ->
 
@@ -176,16 +176,27 @@ describe "TextObjects", ->
       keydown('p')
 
       expect(editor.getText()).toBe "\nParagraph-1\nParagraph-1\nParagraph-1\n\n"
-      expect(editor.getCursorScreenPosition()).toEqual [1, 0]
+      # expect(editor.getCursorScreenPosition()).toEqual [1, 0]
       expect(vimState.getRegister('"').text).toBe "Paragraph-1\nParagraph-1\nParagraph-1\n"
       expect(editorElement.classList.contains('operator-pending-mode')).toBe(false)
       expect(editorElement.classList.contains('command-mode')).toBe(true)
 
     it "selects inside the current paragraph in visual mode", ->
+
       keydown('v')
       keydown('i')
       keydown('p')
 
+      expect(editor.getSelectedScreenRange()).toEqual [[1, 0], [4, 0]]
+
+    it "selects between paragraphs in visual mode if invoked on a empty line", ->
+      editor.setText("text\n\n\n\ntext\n")
+      editor.setCursorBufferPosition([1, 0])
+
+      keydown('v')
+      keydown('i')
+      keydown('p')
+      
       expect(editor.getSelectedScreenRange()).toEqual [[1, 0], [4, 0]]
 
   describe "the 'ap' text object", ->
@@ -211,7 +222,7 @@ describe "TextObjects", ->
       keydown('p')
 
       expect(editor.getSelectedScreenRange()).toEqual [[2, 0], [6, 0]]
-      
+
   describe "the 'i[' text object", ->
     beforeEach ->
       editor.setText("[ something in here and in [here] ]")
