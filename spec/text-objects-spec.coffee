@@ -1,6 +1,6 @@
 helpers = require './spec-helper'
 
-fdescribe "TextObjects", ->
+describe "TextObjects", ->
   [editor, editorElement, vimState] = []
 
   beforeEach ->

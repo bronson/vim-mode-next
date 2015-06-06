@@ -174,7 +174,6 @@ class Paragraph extends TextObject
   isEmptyOrWhitespaceLine: (line) -> not (/\S/.test(line))
 
 class SelectInsideParagraph extends Paragraph
-  constructor: (@editor, @inclusive) ->
   select: ->
     for selection in @editor.getSelections()
       if @isBetweenParagraphs(selection)
