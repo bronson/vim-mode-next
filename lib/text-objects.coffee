@@ -140,24 +140,9 @@ class SelectAWord extends TextObject
         selection.selectRight()
       true
 
-class SelectInsideParagraph extends TextObject
-  constructor: (@editor, @inclusive) ->
-  select: ->
-    for selection in @editor.getSelections()
-      if @isBetweenParagraphs(selection)
-        startRow = selection.getBufferRange().start.row
-        @expandSelectionFromRow(selection, startRow, (line) =>
-          @isEmptyOrWhitespaceLine(line)
-        )
-      else
-        startRow = selection.cursor.getBufferPosition().row
-        @expandSelectionFromRow(selection, startRow, (line) =>
-          !@isEmptyOrWhitespaceLine(line)
-        )
-      true
-
+class Paragraph extends TextObject
   isBetweenParagraphs: (selection) ->
-    return @enteredVisualModeOnBlankLine(selection) || @bufferRowsAreEmptyOrWhitespace(selection)
+    return @selectedBlankLine(selection) or @bufferRowsAreEmptyOrWhitespace(selection)
 
   bufferRowsAreEmptyOrWhitespace: (selection) ->
     rows = selection.getBufferRange().getRows()
@@ -166,12 +151,13 @@ class SelectInsideParagraph extends TextObject
         return false
     true
 
-  # If we enter visual mode on a blank line, the cursor is moved to next line.
+  # If we select a blank line (i.e. by entering visual mode on a blank line), the
+  # cursor is moved to next line.
   # This means that that if we enter visual mode on the last empty line before a
   # paragraph, the cursor will be inside the paragraph.
-  enteredVisualModeOnBlankLine: (selection) ->
+  selectedBlankLine: (selection) ->
     range = selection.getBufferRange()
-    return range.getRows().length == 2 && range.start.column == 0 && range.end.column == 0
+    return range.getRows().length is 2 and range.start.column is 0 and range.end.column is 0
 
   expandSelectionFromRow: (selection, startRow, isValidLine) ->
     bottomRow = startRow
@@ -180,21 +166,38 @@ class SelectInsideParagraph extends TextObject
       bottomRow++
     while (isValidLine(@editor.lineTextForBufferRow(topRow)))
       topRow--
-    selection.setBufferRange(new Range([topRow+1, 0], [bottomRow, 0]))
+    oldBufferRange = selection.getBufferRange()
+    bottomRow = Math.max(bottomRow, oldBufferRange.end.row)
+    topRow = Math.min(topRow + 1, oldBufferRange.start.row)
+    selection.setBufferRange(new Range([topRow, 0], [bottomRow, 0]))
 
-  isEmptyOrWhitespaceLine: (line) -> !(/\S/.test(line))
+  isEmptyOrWhitespaceLine: (line) -> not (/\S/.test(line))
 
-class SelectAParagraph extends TextObject
+class SelectInsideParagraph extends Paragraph
   constructor: (@editor, @inclusive) ->
   select: ->
     for selection in @editor.getSelections()
-      range = selection.cursor.getCurrentParagraphBufferRange()
-      if range?
-        selection.setBufferRange(range)
-        selection.selectToBeginningOfNextParagraph()
-        selection.selectDown()
-        true
+      if @isBetweenParagraphs(selection)
+        startRow = selection.getBufferRange().start.row
+        @expandSelectionFromRow(selection, startRow, (line) => @isEmptyOrWhitespaceLine(line))
+      else
+        startRow = selection.cursor.getBufferPosition().row
+        @expandSelectionFromRow(selection, startRow, (line) => not @isEmptyOrWhitespaceLine(line))
+      true
 
+class SelectAParagraph extends Paragraph
+  select: ->
+    for selection in @editor.getSelections()
+      if @isBetweenParagraphs(selection)
+        startRow = selection.getBufferRange().start.row
+        @expandSelectionFromRow(selection, startRow, (line) => @isEmptyOrWhitespaceLine(line))
+        @editor.selectToBeginningOfNextParagraph()
+      else
+        startRow = selection.cursor.getBufferPosition().row
+        @expandSelectionFromRow(selection, startRow, (line) => not @isEmptyOrWhitespaceLine(line))
+        startRow = selection.getBufferRange().end.row
+        @expandSelectionFromRow(selection, startRow, (line) => @isEmptyOrWhitespaceLine(line))
+      true
 
 module.exports = {
   TextObject,
