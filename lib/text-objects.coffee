@@ -162,9 +162,10 @@ class Paragraph extends TextObject
   expandSelectionFromRow: (selection, startRow, isValidLine) ->
     bottomRow = startRow
     topRow = startRow
-    while (isValidLine(@editor.lineTextForBufferRow(bottomRow)))
+    maxRow = @editor.getLineCount()
+    while (bottomRow < maxRow and isValidLine(@editor.lineTextForBufferRow(bottomRow)))
       bottomRow++
-    while (isValidLine(@editor.lineTextForBufferRow(topRow)))
+    while (topRow >= 0 and isValidLine(@editor.lineTextForBufferRow(topRow)))
       topRow--
     oldBufferRange = selection.getBufferRange()
     bottomRow = Math.max(bottomRow, oldBufferRange.end.row)
