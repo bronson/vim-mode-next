@@ -802,7 +802,7 @@ describe "Operators", ->
 
     describe "with an up motion", ->
       beforeEach ->
-        editor.setCursorScreenPosition([2,2])
+        editor.setCursorScreenPosition([2, 2])
         keydown 'y'
         keydown 'k'
 
