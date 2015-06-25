@@ -35,3 +35,25 @@
 * [;](http://vimhelp.appspot.com/motion.txt.html#%3B)
 * [,](http://vimhelp.appspot.com/motion.txt.html#%2C)
 * [/ and ?](http://vimhelp.appspot.com/pattern.txt.html#search-commands) (including `//` and `??`)
+
+## Implemented Text Objects
+
+[Vim text objects](http://vimhelp.appspot.com/motion.txt.html#object-select)
+
+* ``i w``   ``a w``
+* ``i W``   ``a W``
+* ``i "``   ``a "``
+* ``i '``   ``a '``
+* ``i ` ``  ``a ` ``
+* ``i {``   ``a {``
+* ``i }``   ``a }``
+* ``i B``   ``a B``
+* ``i <``   ``a <``
+* ``i >``   ``a >``
+* ``i t``  
+* ``[i ``   ``[a ``
+* ``i ]``   ``a ]``
+* ``i (``   ``a (``
+* ``i )``   ``a )``
+* ``i b``   ``a b``
+* ``i p``   ``a p``
