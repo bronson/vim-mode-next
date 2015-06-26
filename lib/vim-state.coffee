@@ -6,6 +6,7 @@ settings = require './settings'
 Operators = require './operators/index'
 Prefixes = require './prefixes'
 Motions = require './motions/index'
+InsertMode = require './insert-mode'
 
 TextObjects = require './text-objects'
 Utils = require './utils'
@@ -69,6 +70,8 @@ class VimState
       'repeat-prefix': (e) => @repeatPrefix(e)
       'reverse-selections': (e) => @reverseSelections(e)
       'undo': (e) => @undo(e)
+      'copy-from-line-above': => InsertMode.copyCharacterFromAbove(@editor, this)
+      'copy-from-line-below': => InsertMode.copyCharacterFromBelow(@editor, this)
 
     @registerOperationCommands
       'activate-insert-mode': => new Operators.Insert(@editor, this)
