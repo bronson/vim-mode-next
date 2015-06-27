@@ -151,10 +151,6 @@ class Paragraph extends TextObject
         return false
     true
 
-  # If we select a blank line (i.e. by entering visual mode on a blank line), the
-  # cursor is moved to next line.
-  # This means that that if we enter visual mode on the last empty line before a
-  # paragraph, the cursor will be inside the paragraph.
   selectedBlankLine: (selection) ->
     range = selection.getBufferRange()
     return range.getRows().length is 2 and range.start.column is 0 and range.end.column is 0
