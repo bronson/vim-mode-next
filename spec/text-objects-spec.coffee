@@ -176,7 +176,7 @@ describe "TextObjects", ->
       keydown('p')
 
       expect(editor.getText()).toBe "\nParagraph-1\nParagraph-1\nParagraph-1\n\n"
-      # expect(editor.getCursorScreenPosition()).toEqual [4, 0]
+      expect(editor.getCursorScreenPosition()).toEqual [1, 0]
       expect(vimState.getRegister('"').text).toBe "Paragraph-1\nParagraph-1\nParagraph-1\n"
       expect(editorElement.classList.contains('operator-pending-mode')).toBe(false)
       expect(editorElement.classList.contains('command-mode')).toBe(true)
@@ -211,7 +211,7 @@ describe "TextObjects", ->
       keydown('p')
 
       expect(editor.getText()).toBe "text\n\nParagraph-1\nParagraph-1\nParagraph-1\n\n\nmoretext"
-      # expect(editor.getCursorScreenPosition()).toEqual [2, 0]
+      expect(editor.getCursorScreenPosition()).toEqual [2, 0]
       expect(vimState.getRegister('"').text).toBe "Paragraph-1\nParagraph-1\nParagraph-1\n\n\n"
       expect(editorElement.classList.contains('operator-pending-mode')).toBe(false)
       expect(editorElement.classList.contains('command-mode')).toBe(true)
@@ -232,7 +232,7 @@ describe "TextObjects", ->
       keydown('p')
 
       expect(editor.getText()).toBe "text\n\n\n\nParagraph-1\nParagraph-1\nParagraph-1\n\n\nmoretext"
-      # expect(editor.getCursorScreenPosition()).toEqual [7, 0]
+      expect(editor.getCursorScreenPosition()).toEqual [1, 0]
       expect(vimState.getRegister('"').text).toBe "\n\n\nParagraph-1\nParagraph-1\nParagraph-1\n"
       expect(editorElement.classList.contains('operator-pending-mode')).toBe(false)
       expect(editorElement.classList.contains('command-mode')).toBe(true)
