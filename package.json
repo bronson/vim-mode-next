@@ -1,11 +1,11 @@
 {
-  "name": "vim-mode",
+  "name": "vim-mode-next",
   "main": "./lib/vim-mode",
-  "version": "0.54.0",
-  "description": "Add vim modal control",
+  "version": "0.54.3",
+  "description": "In-progress patches for the vim-mode package",
   "license": "MIT",
   "private": true,
-  "repository": "https://github.com/atom/vim-mode",
+  "repository": "https://github.com/bronson/vim-mode-next",
   "engines": {
     "atom": ">0.151.0"
   },
