@@ -48,3 +48,9 @@ push upstream (for example, this README file).
 
 
 ## Status
+
+These pull requests have been merged but they're not in vim-mode yet.
+
+* [#720](https://github.com/atom/vim-mode/pull/720) ctrl-r in insert mode to paste register
+* [#723](https://github.com/atom/vim-mode/pull/723) ctrl-^ to select recent tab (incomplete: needs tests)
+* [#732](https://github.com/atom/vim-mode/pull/732) ctrl-t to return from symbol
