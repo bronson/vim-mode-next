@@ -4,6 +4,15 @@ Inspired by the [linux-next branch](https://lwn.net/Articles/289013/), vim-mode-
 an integration area for mostly-finished [vim-mode pull requests](https://github.com/atom/vim-mode/pulls).
 
 
+## Status
+
+These pull requests have been merged but they're not in vim-mode yet.
+
+* [#720](https://github.com/atom/vim-mode/pull/720) ctrl-r in insert mode to paste register
+* [#723](https://github.com/atom/vim-mode/pull/723) ctrl-^ to select recent tab (incomplete: needs tests)
+* [#732](https://github.com/atom/vim-mode/pull/732) ctrl-t to return from symbol
+
+
 ### Installing
 
 Unless you understand the trade-offs, use [vim-mode](https://github.com/atom/vim-mode/).
@@ -31,7 +40,7 @@ Consider installing these packages to provide even more Vim finger-feel:
 
 ### Development
 
-Unchanged.  Submit all features and fixes as a pull requests against vim-mode.
+Unchanged!  Submit all your fixes as a pull requests against vim-mode.
 If they look reasonably complete, they will find their way into vim-mode-next
 in a few days (if not, [file an issue](https://github.com/bronson/vim-mode-next/issues)).
 
@@ -45,12 +54,3 @@ the ready branch is updated, it gets merged into master.
 The [master branch](https://github.com/bronson/vim-mode-next/tree/master)
 includes additional commits that don't make sense to
 push upstream (for example, this README file).
-
-
-## Status
-
-These pull requests have been merged but they're not in vim-mode yet.
-
-* [#720](https://github.com/atom/vim-mode/pull/720) ctrl-r in insert mode to paste register
-* [#723](https://github.com/atom/vim-mode/pull/723) ctrl-^ to select recent tab (incomplete: needs tests)
-* [#732](https://github.com/atom/vim-mode/pull/732) ctrl-t to return from symbol
