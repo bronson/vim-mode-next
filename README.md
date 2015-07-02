@@ -1,48 +1,32 @@
-## Vim Mode package [![Build Status](https://travis-ci.org/atom/vim-mode.svg?branch=master)](https://travis-ci.org/atom/vim-mode)
+## Vim Mode Next [![Build Status](https://travis-ci.org/bronson/vim-mode-next.svg?branch=master)](https://travis-ci.org/bronson/vim-mode-next)
 
-Provides vim modal control for Atom, ideally blending the best of vim
-and Atom.
+Inspired by the [linux-next branch](https://lwn.net/Articles/289013/), vim-mode-next is
+an integration area for mostly-finished [vim-mode pull requests](https://github.com/atom/vim-mode/pulls).
+
 
 ### Installing
 
-Use the Atom package manager, which can be found in the Settings view or
-run `apm install vim-mode` from the command line.
+Unless you understand the trade-offs, use [vim-mode](https://github.com/atom/vim-mode/).
 
-### Current Status
+That said, you can install vim-mode-next with the Atom preferences pane,
+or by running:
 
-Sizable portions of Vim's command mode work as you'd expect, including
-many complex combinations. Even so, this package is far from finished (Vim
-wasn't built in a day).
+    apm install vim-mode-next
 
-If you want the vim ex line (for `:w`, `:s`, etc.), you can try [ex-mode](https://atom.io/packages/ex-mode)
-which works in conjuction with this plugin.
-
-Currently, vim-mode requires soft line wraps to be disabled, and has some issues
-with international keyboard layouts.
-
-If there's a feature of Vim you're missing, it might just be that you use it
-more often than other developers. Adding a feature can be quick and easy. Check
-out the [closed pull requests](https://github.com/atom/vim-mode/pulls?direction=desc&page=1&sort=created&state=closed)
-to see examples of community contributions. We're looking forward to yours, too.
-
-### Documentation
-
-* [Overview](https://github.com/atom/vim-mode/blob/master/docs/overview.md)
-* [Motions](https://github.com/atom/vim-mode/blob/master/docs/motions.md)
-* [Operators](https://github.com/atom/vim-mode/blob/master/docs/operators.md)
-* [Windows](https://github.com/atom/vim-mode/blob/master/docs/windows.md)
-* [Scrolling](https://github.com/atom/vim-mode/blob/master/docs/scrolling.md)
 
 ### Development
 
-* Create a branch with your feature/fix.
-* Add a spec (take inspiration from the ones that are already there).
-* If you're adding a command be sure to update the appropriate file in
-  `docs/`
-* Create a PR.
+Unchanged.  Submit all features and fixes as a pull requests against vim-mode.
+If they look reasonably complete, they will find their way into vim-mode-next
+in a few days (if not, [file an issue](https://github.com/bronson/vim-mode-next/issues)).
 
-When in doubt, open a PR earlier rather than later so that you can receive
-feedback from the community. We want to get your fix or feature included as much
-as you do.
 
-See [the contribution guide](https://github.com/atom/vim-mode/blob/master/CONTRIBUTING.md).
+#### Branches
+
+The [ready branch](https://github.com/bronson/vim-mode-next/tree/ready)
+contains features and commits meant to be included upstream.  Any time
+the ready branch is updated, it gets merged into master.
+
+The [master branch](https://github.com/bronson/vim-mode-next/tree/master)
+includes additional commits that don't make sense to
+push upstream (for example, this README file).
