@@ -69,6 +69,7 @@ class VimState
       'repeat-prefix': (e) => @repeatPrefix(e)
       'reverse-selections': (e) => @reverseSelections(e)
       'undo': (e) => @undo(e)
+      'insert-mode-put': (e) => @insertRegister(@registerName(e))
 
     @registerOperationCommands
       'activate-insert-mode': => new Operators.Insert(@editor, this)
@@ -173,6 +174,7 @@ class VimState
       'search-current-word': (e) => new Motions.SearchCurrentWord(@editor, this)
       'bracket-matching-motion': (e) => new Motions.BracketMatchingMotion(@editor, this)
       'reverse-search-current-word': (e) => (new Motions.SearchCurrentWord(@editor, this)).reversed()
+      'focus-recent-tab': (e) => new Motions.Pane(@editor, this)
 
   # Private: Register multiple command handlers via an {Object} that maps
   # command names to command handler functions.
@@ -278,6 +280,8 @@ class VimState
   # Returns the value of the given register or undefined if it hasn't
   # been set.
   getRegister: (name) ->
+    if name is '"'
+      name = settings.defaultRegister()
     if name in ['*', '+']
       text = atom.clipboard.read()
       type = Utils.copyType(text)
@@ -312,6 +316,8 @@ class VimState
   #
   # Returns nothing.
   setRegister: (name, value) ->
+    if name is '"'
+      name = settings.defaultRegister()
     if name in ['*', '+']
       atom.clipboard.write(value.text)
     else if name is '_'
@@ -512,11 +518,19 @@ class VimState
   #
   # Returns nothing.
   registerPrefix: (e) ->
+    new Prefixes.Register(@registerName(e))
+
+  # Private: Gets a register name from a keyboard event
+  #
+  # e - The event
+  #
+  # Returns the name of the register
+  registerName: (e) ->
     keyboardEvent = e.originalEvent?.originalEvent ? e.originalEvent
     name = atom.keymaps.keystrokeForKeyboardEvent(keyboardEvent)
     if name.lastIndexOf('shift-', 0) is 0
       name = name.slice(6)
-    new Prefixes.Register(name)
+    name
 
   # Private: A generic way to create a Number prefix based on the event.
   #
@@ -580,6 +594,15 @@ class VimState
 
   updateStatusBar: ->
     @statusBarManager.update(@mode, @submode)
+
+  # Private: insert the contents of the register in the editor
+  #
+  # name - the name of the register to insert
+  #
+  # Returns nothing.
+  insertRegister: (name) ->
+    text = @getRegister(name)?.text
+    @editor.insertText(text) if text?
 
 # This uses private APIs and may break if TextBuffer is refactored.
 # Package authors - copy and paste this code at your own risk.
