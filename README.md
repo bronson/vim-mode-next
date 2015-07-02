@@ -13,6 +13,21 @@ or by running:
 
     apm install vim-mode-next
 
+#### Interesting Packages
+
+Consider installing these packages to provide even more Vim finger-feel:
+
+* [ex-mode](https://atom.io/packages/ex-mode)
+* [cursor-history](https://atom.io/packages/cursor-history) and add the following to your keymap.cson:
+
+  ```cson
+  'atom-text-editor.vim-mode.command-mode':
+    'ctrl-i': 'cursor-history:next'
+    'ctrl-o': 'cursor-history:prev'
+  ```
+
+* [vim-surround](https://atom.io/packages/vim-surround)
+
 
 ### Development
 
@@ -30,3 +45,6 @@ the ready branch is updated, it gets merged into master.
 The [master branch](https://github.com/bronson/vim-mode-next/tree/master)
 includes additional commits that don't make sense to
 push upstream (for example, this README file).
+
+
+## Status
