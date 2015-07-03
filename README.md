@@ -8,6 +8,9 @@ an integration area for mostly-finished [vim-mode pull requests](https://github.
 
 These pull requests have been merged but they're not in vim-mode yet.
 
+* [#653](https://github.com/atom/vim-mode/pull/653) add a short highlight when text is yanked
+* [#686](https://github.com/atom/vim-mode/pull/686) add vertical/horizontal split key bindings to tree-view
+* [#689](https://github.com/atom/vim-mode/pull/689) improve ip/ap paragraph text objects
 * [#710](https://github.com/atom/vim-mode/pull/710) make multiple cursor delete work once, not one-by-one
 * [#711](https://github.com/atom/vim-mode/pull/711) fix p at end-of-line leaving cursor in wrong position
 * [#717](https://github.com/atom/vim-mode/pull/717) implement W (whole word) text object
