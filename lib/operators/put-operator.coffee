@@ -58,9 +58,9 @@ class Put extends Operator
       @editor.setCursorScreenPosition(originalPosition)
       @editor.moveToFirstCharacterOfLine()
 
-    @vimState.activateCommandMode()
     if type isnt 'linewise'
       @editor.moveLeft()
+    @vimState.activateCommandMode()
 
   # Private: Helper to determine if the editor is currently on the last row.
   #
