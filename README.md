@@ -8,7 +8,9 @@ an integration area for mostly-finished [vim-mode pull requests](https://github.
 
 These pull requests are merged here but they're not in vim-mode yet.
 
+* [#573](https://github.com/atom/vim-mode/pull/573) replace mode!!
 * [#591](https://github.com/atom/vim-mode/pull/591) yank should not scroll
+* [#609](https://github.com/atom/vim-mode/pull/609) allow inserting with a count and changing count when repeating
 * [#611](https://github.com/atom/vim-mode/pull/611) make g~g~, gugu, and gUgU change case of the whole line
 * [#623](https://github.com/atom/vim-mode/pull/623) ensure t motion includes the character below the cursor
 * [#653](https://github.com/atom/vim-mode/pull/653) add a short highlight when text is yanked
@@ -21,6 +23,12 @@ These pull requests are merged here but they're not in vim-mode yet.
 * [#720](https://github.com/atom/vim-mode/pull/720) ctrl-r in insert mode to paste register
 * [#723](https://github.com/atom/vim-mode/pull/723) ctrl-^ to select recent tab (incomplete: needs tests)
 * [#732](https://github.com/atom/vim-mode/pull/732) ctrl-t to return from symbol
+
+And these are not merged here because they're not ready but, oh, how I wish they were.
+
+* [#658](https://github.com/atom/vim-mode/pull/658) blockwise visual select
+* [#581](https://github.com/atom/vim-mode/pull/581) dw at end of line should not wrap line
+* [#513](https://github.com/atom/vim-mode/pull/513) move window operations
 
 
 ### Installing
