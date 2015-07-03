@@ -143,6 +143,10 @@ class ToggleCase extends Operator
 
     @vimState.activateCommandMode()
 
+    if @motion? and @motion.isLinewise?()
+      @editor.moveToPreviousWordBoundary()
+      @editor.moveToFirstCharacterOfLine()
+
 #
 # In visual mode or after `g` with a motion, it makes the selection uppercase
 #
@@ -157,6 +161,10 @@ class UpperCase extends Operator
 
     @vimState.activateCommandMode()
 
+    if @motion? and @motion.isLinewise?()
+      @editor.moveToPreviousWordBoundary()
+      @editor.moveToFirstCharacterOfLine()
+
 #
 # In visual mode or after `g` with a motion, it makes the selection lowercase
 #
@@ -170,6 +178,10 @@ class LowerCase extends Operator
         text.toLowerCase()
 
     @vimState.activateCommandMode()
+
+    if @motion and @motion.isLinewise?()
+      @editor.moveToPreviousWordBoundary()
+      @editor.moveToFirstCharacterOfLine()
 
 #
 # It copies everything selected by the following motion.
@@ -186,13 +198,20 @@ class Yank extends Operator
   #
   # Returns nothing.
   execute: (count) ->
+    oldTop = @editor.getScrollTop()
+    oldLeft = @editor.getScrollLeft()
+    oldLastCursorPosition = @editor.getCursorBufferPosition()
+
     originalPositions = @editor.getCursorBufferPositions()
     if _.contains(@motion.select(count), true)
       text = @editor.getSelectedText()
       startPositions = _.pluck(@editor.getSelectedBufferRanges(), "start")
       newPositions = for originalPosition, i in originalPositions
-        if startPositions[i] and (@vimState.mode is 'visual' or not @motion.isLinewise?())
-          Point.min(startPositions[i], originalPositions[i])
+        if startPositions[i]
+          position = Point.min(startPositions[i], originalPositions[i])
+          if @vimState.mode isnt 'visual' and @motion.isLinewise?()
+            position = new Point(position.row, originalPositions[i].column)
+          position
         else
           originalPosition
     else
@@ -207,6 +226,12 @@ class Yank extends Operator
     setTimeout (-> yankHighlight.destroy()), 300
 
     @editor.setSelectedBufferRanges(newPositions.map (p) -> new Range(p, p))
+    Utils.ensureCursorIsWithinLine(cursor, @vimState) for cursor in @editor.getCursors()
+
+    if oldLastCursorPosition.isEqual(@editor.getCursorBufferPosition())
+      @editor.setScrollLeft(oldLeft)
+      @editor.setScrollTop(oldTop)
+
     @vimState.activateCommandMode()
 
 #

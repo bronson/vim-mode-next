@@ -714,8 +714,9 @@ describe "Operators", ->
 
   describe "the y keybinding", ->
     beforeEach ->
-      editor.getBuffer().setText("012 345\nabc\n")
+      editor.getBuffer().setText("012 345\nabc\ndefg\n")
       editor.setCursorScreenPosition([0, 4])
+      vimState.setRegister('"', text: '345')
 
     describe "when selected lines in visual linewise mode", ->
       beforeEach ->
@@ -826,6 +827,18 @@ describe "Operators", ->
       it "leaves the cursor at the starting position", ->
         expect(editor.getCursorScreenPosition()).toEqual [0, 4]
 
+    describe "with an up motion", ->
+      beforeEach ->
+        editor.setCursorScreenPosition([2, 2])
+        keydown 'y'
+        keydown 'k'
+
+      it "saves both full lines to the default register", ->
+        expect(vimState.getRegister('"').text).toBe "abc\ndefg\n"
+
+      it "puts the cursor on the first line and the original column", ->
+        expect(editor.getCursorScreenPosition()).toEqual [1, 2]
+
     describe "when followed by a G", ->
       beforeEach ->
         originalText = "12345\nabcde\nABCDE"
@@ -881,6 +894,48 @@ describe "Operators", ->
 
         expect(vimState.getRegister('"').text).toBe '123'
         expect(editor.getCursorBufferPositions()).toEqual [[0, 0], [1, 2]]
+
+    describe "in a long file", ->
+      beforeEach ->
+        editor.setHeight(400)
+        editor.setLineHeightInPixels(10)
+        editor.setDefaultCharWidth(10)
+        text = ""
+        for i in [1..200]
+          text += "#{i}\n"
+        editor.setText(text)
+
+      describe "yanking many lines forward", ->
+        it "does not scroll the window", ->
+          editor.setCursorBufferPosition [40, 1]
+          top40 = editor.getScrollTop()
+
+          # yank many lines
+          keydown('y')
+          keydown('1')
+          keydown('6')
+          keydown('0')
+          keydown('G', shift: true)
+
+          expect(editor.getScrollTop()).toEqual(top40)
+          expect(editor.getCursorBufferPosition()).toEqual [40, 1]
+          expect(vimState.getRegister('"').text.split('\n').length).toBe 121
+
+      describe "yanking many lines backwards", ->
+        it "scrolls the window", ->
+          editor.setCursorBufferPosition [140, 1]
+          top140 = editor.getScrollTop()
+
+          # yank many lines
+          keydown('y')
+          keydown('6')
+          keydown('0')
+          keydown('G', shift: true)
+
+          expect(editor.getScrollTop()).toNotEqual top140
+          expect(editor.getCursorBufferPosition()).toEqual [59, 1]
+          expect(vimState.getRegister('"').text.split('\n').length).toBe 83
+
 
   describe "the yy keybinding", ->
     describe "on a single line file", ->
@@ -1484,7 +1539,7 @@ describe "Operators", ->
       commandModeInputKeydown('a')
       expect(vimState.getMark('a')).toEqual [0, 1]
 
-  describe 'the ~ keybinding', ->
+  describe 'the g~ keybinding', ->
     beforeEach ->
       editor.setText('aBc\nXyZ')
       editor.setCursorBufferPosition([0, 0])
@@ -1526,7 +1581,19 @@ describe "Operators", ->
         keydown("l")
         expect(editor.getText()).toBe 'Abc\nXyZ'
 
-  describe 'the U keybinding', ->
+    describe "when followed by g~", ->
+      it "toggles the case of the whole line, and the cursor ends up on the first character of that line", ->
+        editor.setCursorBufferPosition([1, 1])
+
+        keydown('g')
+        keydown('~')
+        keydown('g')
+        keydown('~')
+
+        expect(editor.getText()).toBe "aBc\nxYz"
+        expect(editor.getCursorScreenPosition()).toEqual [1, 0]
+
+  describe 'the gU keybinding', ->
     beforeEach ->
       editor.setText('aBc\nXyZ')
       editor.setCursorBufferPosition([0, 0])
@@ -1554,7 +1621,19 @@ describe "Operators", ->
       keydown("U", shift: true)
       expect(editor.getText()).toBe 'ABC\nXyZ'
 
-  describe 'the u keybinding', ->
+    describe "when followed by gU", ->
+      it "makes the whole line uppercase, and the cursor ends up on the first character of that line", ->
+        editor.setCursorBufferPosition([1, 1])
+
+        keydown('g')
+        keydown('U', shift: true)
+        keydown('g')
+        keydown('U', shift: true)
+
+        expect(editor.getText()).toBe "aBc\nXYZ"
+        expect(editor.getCursorBufferPosition()).toEqual [1, 0]
+
+  describe 'the gu keybinding', ->
     beforeEach ->
       editor.setText('aBc\nXyZ')
       editor.setCursorBufferPosition([0, 0])
@@ -1570,6 +1649,18 @@ describe "Operators", ->
       keydown("V", shift: true)
       keydown("u")
       expect(editor.getText()).toBe 'abc\nXyZ'
+
+    describe "when followed by gu", ->
+      it "makes the whole line lowercase, and the cursor ends up on the first character of that line", ->
+        editor.setCursorBufferPosition([1, 1])
+
+        keydown('g')
+        keydown('u')
+        keydown('g')
+        keydown('u')
+
+        expect(editor.getText()).toBe "aBc\nxyz"
+        expect(editor.getCursorScreenPosition()).toEqual [1, 0]
 
   describe "the i keybinding", ->
     beforeEach ->
