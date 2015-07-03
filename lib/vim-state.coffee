@@ -460,18 +460,6 @@ class VimState
     @insertionCheckpoint = null
     @setInsertionCheckpoint()
 
-
-  interruptInsertMode: ->
-    return unless @mode is 'insert'
-    @editor.groupChangesSinceCheckpoint(@insertionCheckpoint)
-    changes = getChangesSinceCheckpoint(@editor.buffer, @insertionCheckpoint)
-    item = @inputOperator(@history[0])
-    @insertionCheckpoint = null
-    if item?
-      item.confirmChanges(changes)
-    @setInsertionCheckpoint()
-
-
   deactivateVisualMode: ->
     return unless @mode is 'visual'
     for selection in @editor.getSelections()
