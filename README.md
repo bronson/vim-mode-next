@@ -8,6 +8,9 @@ an integration area for mostly-finished [vim-mode pull requests](https://github.
 
 These pull requests have been merged but they're not in vim-mode yet.
 
+* [#710](https://github.com/atom/vim-mode/pull/710) make multiple cursor delete work once, not one-by-one
+* [#711](https://github.com/atom/vim-mode/pull/711) fix p at end-of-line leaving cursor in wrong position
+* [#717](https://github.com/atom/vim-mode/pull/717) implement W (whole word) text object
 * [#718](https://github.com/atom/vim-mode/pull/718) make find (ftFT) state global
 * [#720](https://github.com/atom/vim-mode/pull/720) ctrl-r in insert mode to paste register
 * [#723](https://github.com/atom/vim-mode/pull/723) ctrl-^ to select recent tab (incomplete: needs tests)
