@@ -42,9 +42,9 @@ or by running:
 
     apm install vim-mode-next
 
-Of course, vim-mode and vim-mode-next are deeply and seriously incompatible with one another.
-If you enable vim-mode-next, you must disable vim-mode, and vice versa.  Make sure to restart
-Atom after making changes.
+Vim-mode and vim-mode-next are deeply and seriously incompatible with one another.
+If you enable vim-mode-next, you must disable vim-mode, and vice versa.
+Make sure to restart Atom after making changes.
 
 
 #### Interesting Packages
