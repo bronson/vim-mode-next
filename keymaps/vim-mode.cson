@@ -13,6 +13,10 @@
 'atom-text-editor.vim-mode.insert-mode':
   'ctrl-w': 'editor:delete-to-beginning-of-word'
   'ctrl-u': 'editor:delete-to-beginning-of-line'
+  'left': 'vim-mode:move-left-insert'
+  'right': 'vim-mode:move-right-insert'
+  'up': 'vim-mode:move-up-insert'
+  'down': 'vim-mode:move-down-insert'
 
   'ctrl-r a': 'vim-mode:insert-mode-put'
   'ctrl-r b': 'vim-mode:insert-mode-put'
@@ -205,6 +209,7 @@
 
 'atom-text-editor.vim-mode.command-mode':
   'i': 'vim-mode:activate-insert-mode'
+  'R': 'vim-mode:activate-replace-mode'
   'v': 'vim-mode:activate-characterwise-visual-mode'
   'V': 'vim-mode:activate-linewise-visual-mode'
   'ctrl-v': 'vim-mode:activate-blockwise-visual-mode'
