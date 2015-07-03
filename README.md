@@ -8,6 +8,8 @@ an integration area for mostly-finished [vim-mode pull requests](https://github.
 
 These pull requests are merged here but they're not in vim-mode yet.
 
+* [#558](https://github.com/atom/vim-mode/pull/558) implement zs and ze horizontal scrolling
+* [#568](https://github.com/atom/vim-mode/pull/568) cursor motion stops and restarts insert mode
 * [#573](https://github.com/atom/vim-mode/pull/573) replace mode!!
 * [#591](https://github.com/atom/vim-mode/pull/591) yank should not scroll
 * [#609](https://github.com/atom/vim-mode/pull/609) allow inserting with a count and changing count when repeating
