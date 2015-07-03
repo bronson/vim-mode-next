@@ -10,7 +10,7 @@ These pull requests are merged here but they're not in vim-mode yet.
 
 * [#558](https://github.com/atom/vim-mode/pull/558) implement zs and ze horizontal scrolling
 * [#568](https://github.com/atom/vim-mode/pull/568) cursor motion stops and restarts insert mode
-* [#573](https://github.com/atom/vim-mode/pull/573) replace mode!!
+* [#573](https://github.com/atom/vim-mode/pull/573) add replace mode!!
 * [#591](https://github.com/atom/vim-mode/pull/591) yank should not scroll
 * [#609](https://github.com/atom/vim-mode/pull/609) allow inserting with a count and changing count when repeating
 * [#611](https://github.com/atom/vim-mode/pull/611) make g~g~, gugu, and gUgU change case of the whole line
@@ -22,16 +22,19 @@ These pull requests are merged here but they're not in vim-mode yet.
 * [#711](https://github.com/atom/vim-mode/pull/711) fix p at end-of-line leaving cursor in wrong position
 * [#717](https://github.com/atom/vim-mode/pull/717) implement W (whole word) text object
 * [#718](https://github.com/atom/vim-mode/pull/718) make find (ftFT) state global
-* [#720](https://github.com/atom/vim-mode/pull/720) ctrl-r in insert mode to paste register
-* [#723](https://github.com/atom/vim-mode/pull/723) ctrl-^ to select recent tab (needs tests)
-* [#727](https://github.com/atom/vim-mode/pull/727) gf to goto file under cursor (needs tests)
-* [#732](https://github.com/atom/vim-mode/pull/732) ctrl-t to return from symbol
+* [#720](https://github.com/atom/vim-mode/pull/720) add ctrl-r in insert mode to paste register
+* [#723](https://github.com/atom/vim-mode/pull/723) add ctrl-^ to select recent tab (needs tests)
+* [#724](https://github.com/atom/vim-mode/pull/724) add gD, goto global definiton
+* [#727](https://github.com/atom/vim-mode/pull/727) add gf, goto file under cursor (needs tests)
+* [#732](https://github.com/atom/vim-mode/pull/732) make ctrl-t return from symbol
 
 And these are not merged here because they're not ready but, oh, how I wish they were.
 
-* [#658](https://github.com/atom/vim-mode/pull/658) blockwise visual select
+* [#513](https://github.com/atom/vim-mode/pull/513) add move window operations
 * [#581](https://github.com/atom/vim-mode/pull/581) dw at end of line should not wrap line
-* [#513](https://github.com/atom/vim-mode/pull/513) move window operations
+* [#658](https://github.com/atom/vim-mode/pull/658) implement blockwise visual select
+
+TODO:
 
 
 ### Installing
