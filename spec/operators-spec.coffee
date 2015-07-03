@@ -5,7 +5,7 @@ describe "Operators", ->
   [editor, editorElement, vimState] = []
 
   beforeEach ->
-    vimMode = atom.packages.loadPackage('vim-mode')
+    vimMode = atom.packages.loadPackage('vim-mode-next')
     vimMode.activateResources()
 
     helpers.getEditorElement (element) ->

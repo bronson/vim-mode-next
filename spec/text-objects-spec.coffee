@@ -4,7 +4,7 @@ describe "TextObjects", ->
   [editor, editorElement, vimState] = []
 
   beforeEach ->
-    vimMode = atom.packages.loadPackage('vim-mode')
+    vimMode = atom.packages.loadPackage('vim-mode-next')
     vimMode.activateResources()
 
     helpers.getEditorElement (element) ->
@@ -211,7 +211,7 @@ describe "TextObjects", ->
       keydown('p')
 
       expect(editor.getSelectedScreenRange()).toEqual [[2, 0], [6, 0]]
-      
+
   describe "the 'i[' text object", ->
     beforeEach ->
       editor.setText("[ something in here and in [here] ]")
