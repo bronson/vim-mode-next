@@ -8,17 +8,23 @@ settings = require '../settings'
 # tells the operation to repeat itself instead of enter insert mode.
 class Insert extends Operator
   standalone: true
+  count: 1
 
   isComplete: -> @standalone or super
 
-  confirmChanges: (changes) ->
+  confirmChanges: (changes, insertionCheckpoint, options) ->
+    interrupted = options?.interrupted
     bundler = new TransactionBundler(changes, @editor)
     @typedText = bundler.buildInsertText()
+    if @count > 1 and not interrupted
+      @editor.insertText(@typedText) for i in [2..@count]
 
-  execute: ->
+  execute: (count) ->
+    @count = count if count?
     if @typingCompleted
       return unless @typedText? and @typedText.length > 0
-      @editor.insertText(@typedText, normalizeLineEndings: true)
+      @editor.transact =>
+        @editor.insertText(@typedText, normalizeLineEndings: true) for i in [1..@count]
       for cursor in @editor.getCursors()
         cursor.moveLeft() unless cursor.isAtBeginningOfLine()
     else
@@ -27,6 +33,15 @@ class Insert extends Operator
     return
 
   inputOperator: -> true
+
+# an insert operation following cursor motion in insert mode can be cancelled
+# and forgotten like it never happened
+class InsertCancellable extends Insert
+
+  confirmTransaction: (transaction) ->
+    super
+    if @typedText?.length is 0
+      @vimState.history.shift() if @vimState.history[0] is this
 
 class InsertAfter extends Insert
   execute: ->
@@ -103,7 +118,7 @@ class Change extends Insert
         for selection in @editor.getSelections()
           selection.deleteSelectedText()
 
-    return super if @typingCompleted
+    return super(1) if @typingCompleted
 
     @vimState.activateInsertMode()
     @typingCompleted = true
@@ -123,7 +138,7 @@ class Substitute extends Insert
 
     if @typingCompleted
       @typedText = @typedText.trimLeft()
-      return super
+      return super(1)
 
     @vimState.activateInsertMode()
     @typingCompleted = true
@@ -147,7 +162,7 @@ class SubstituteLine extends Insert
 
     if @typingCompleted
       @typedText = @typedText.trimLeft()
-      return super
+      return super(1)
 
     @vimState.activateInsertMode()
     @typingCompleted = true
@@ -225,6 +240,7 @@ module.exports = {
   InsertAtBeginningOfLine,
   InsertAboveWithNewline,
   InsertBelowWithNewline,
+  InsertCancellable,
   Change,
   Substitute,
   SubstituteLine
