@@ -1,6 +1,6 @@
 {
   "name": "vim-mode-next",
-  "main": "./lib/vim-mode",
+  "main": "./lib/vim-mode-next",
   "version": "0.54.4",
   "description": "In-progress patches for the vim-mode package",
   "license": "MIT",
