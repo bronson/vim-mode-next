@@ -142,6 +142,8 @@ class VimState
       'scroll-full-screen-up': => new Motions.ScrollFullUpKeepCursor(@editorElement, this)
       'scroll-half-screen-down': => new Motions.ScrollHalfDownKeepCursor(@editorElement, this)
       'scroll-full-screen-down': => new Motions.ScrollFullDownKeepCursor(@editorElement, this)
+      'scroll-cursor-to-left': => new Scroll.ScrollCursorToLeft(@editor)
+      'scroll-cursor-to-right': => new Scroll.ScrollCursorToRight(@editor)
       'select-inside-word': => new TextObjects.SelectInsideWord(@editor)
       'select-inside-whole-word': => new TextObjects.SelectInsideWholeWord(@editor)
       'select-inside-double-quotes': => new TextObjects.SelectInsideQuotes(@editor, '"', false)
@@ -456,6 +458,17 @@ class VimState
       item.confirmChanges(changes, @insertionCheckpoint, interrupted: true)
     @editor.groupChangesSinceCheckpoint(@insertionCheckpoint)
     @insertionCheckpoint = null
+    @setInsertionCheckpoint()
+
+
+  interruptInsertMode: ->
+    return unless @mode is 'insert'
+    @editor.groupChangesSinceCheckpoint(@insertionCheckpoint)
+    changes = getChangesSinceCheckpoint(@editor.buffer, @insertionCheckpoint)
+    item = @inputOperator(@history[0])
+    @insertionCheckpoint = null
+    if item?
+      item.confirmChanges(changes)
     @setInsertionCheckpoint()
 
 

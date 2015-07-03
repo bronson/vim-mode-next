@@ -1774,7 +1774,6 @@ describe "Operators", ->
       expect(editor.getText()).toBe "ababcababcabccc123\nababcababcabccc4567"
 
     it "stores for repeating only the last batch of characters", ->
-      keydown '2'
       keydown 'i'
       editor.insertText("abc")
       atom.commands.dispatch editorElement, 'vim-mode:move-left-insert'
