@@ -6,8 +6,11 @@ an integration area for mostly-finished [vim-mode pull requests](https://github.
 
 ## Status
 
-These pull requests have been merged but they're not in vim-mode yet.
+These pull requests are merged here but they're not in vim-mode yet.
 
+* [#591](https://github.com/atom/vim-mode/pull/591) yank should not scroll
+* [#611](https://github.com/atom/vim-mode/pull/611) make g~g~, gugu, and gUgU change case of the whole line
+* [#623](https://github.com/atom/vim-mode/pull/623) ensure t motion includes the character below the cursor
 * [#653](https://github.com/atom/vim-mode/pull/653) add a short highlight when text is yanked
 * [#686](https://github.com/atom/vim-mode/pull/686) add vertical/horizontal split key bindings to tree-view
 * [#689](https://github.com/atom/vim-mode/pull/689) improve ip/ap paragraph text objects
