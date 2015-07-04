@@ -6,7 +6,7 @@ an integration area for mostly-finished [vim-mode pull requests](https://github.
 
 ## Status
 
-These pull requests are merged here but they're not in vim-mode yet.
+These pull requests are merged but not in vim-mode yet.
 
 * [#558](https://github.com/atom/vim-mode/pull/558) implement zs and ze horizontal scrolling
 * [#568](https://github.com/atom/vim-mode/pull/568) cursor motion stops and restarts insert mode
@@ -29,32 +29,32 @@ These pull requests are merged here but they're not in vim-mode yet.
 * [#727](https://github.com/atom/vim-mode/pull/727) add gf, goto file under cursor (needs tests)
 * [#732](https://github.com/atom/vim-mode/pull/732) make ctrl-t return from symbol
 
-These are not merged here because they're not ready but, oh, how I wish they were.
+These are not merged because they're not ready but, oh, how I wish they were.
 
 * [#508](https://github.com/atom/vim-mode/pull/508) rename command mode to normal mode
 * [#513](https://github.com/atom/vim-mode/pull/513) add move window operations
 * [#581](https://github.com/atom/vim-mode/pull/581) dw at end of line should not wrap line
 * [#658](https://github.com/atom/vim-mode/pull/658) implement blockwise visual select
 
-Finally, may never be merged:
+Finally, these may never be merged.
 
+* [#397](https://github.com/atom/vim-mode/pull/397) ctrl-i/ctrl-o jump motions (see cursor-history package)
+* [#417](https://github.com/atom/vim-mode/pull/417) fix motion when yanking (works now)
 * [#471](https://github.com/atom/vim-mode/pull/471) lazy load to save startup time (not worth it)
 * [#476](https://github.com/atom/vim-mode/pull/476) can't exit visual mode with `v` (works now)
 * [#506](https://github.com/atom/vim-mode/pull/506) show prefix char in command input (ignored by maintainers)
 * [#510](https://github.com/atom/vim-mode/pull/510) beep when search history is exhausted (not in vim?)
 
+
 ### Installing
 
-Unless you understand the trade-offs, use [vim-mode](https://github.com/atom/vim-mode/).
+Vim-mode and vim-mode-next are deeply and seriously incompatible (of course).
+When you enable vim-mode-next, you must disable vim-mode and restart Atom.
 
-That said, you can install vim-mode-next with the Atom preferences pane,
+You can install vim-mode-next as usual in the Atom preferences pane,
 or by running:
 
     apm install vim-mode-next
-
-Vim-mode and vim-mode-next are deeply and seriously incompatible with one another.
-If you enable vim-mode-next, you must disable vim-mode, and vice versa.
-Make sure to restart Atom after making changes.
 
 
 #### Interesting Packages
@@ -62,6 +62,7 @@ Make sure to restart Atom after making changes.
 Consider installing these packages to provide even more Vim finger-feel:
 
 * [ex-mode](https://atom.io/packages/ex-mode)
+
 * [cursor-history](https://atom.io/packages/cursor-history) and add the following to your keymap.cson:
 
   ```cson
@@ -72,20 +73,17 @@ Consider installing these packages to provide even more Vim finger-feel:
 
 * [vim-surround](https://atom.io/packages/vim-surround)
 
-
-### Development
-
-Unchanged!  Submit all your fixes as a pull requests against vim-mode.
-If they look reasonably complete, they will find their way into vim-mode-next
-in a few days (if not, [file an issue](https://github.com/bronson/vim-mode-next/issues)).
+* [open-this](https://atom.io/packages/open-this) may have some functionality that
+  [#727](https://github.com/atom/vim-mode/pull/727) doesn't.
 
 
-#### Branches
+#### vim-mode-next Branches
 
 The [ready branch](https://github.com/bronson/vim-mode-next/tree/ready)
-contains features and commits meant to be included upstream.  Any time
-the ready branch is updated, it gets merged into master.
+is where the action is.  It contains the the raw pull requests and
+conflict resolutions.  This is where all the work happens.
 
 The [master branch](https://github.com/bronson/vim-mode-next/tree/master)
-includes additional commits that don't make sense to
-push upstream (for example, this README file).
+includes the ready branch, plus additional commits specific to vim-mode-next
+(like this README).  Unlike every other git repository out there,
+this branch is completely uninteresting.
