@@ -15,7 +15,6 @@ These pull requests are merged but not in vim-mode yet.
 * [#609](https://github.com/atom/vim-mode/pull/609) allow inserting with a count and changing count when repeating
 * [#611](https://github.com/atom/vim-mode/pull/611) make g~g~, gugu, and gUgU change case of the whole line
 * [#623](https://github.com/atom/vim-mode/pull/623) ensure t motion includes the character below the cursor
-* [#653](https://github.com/atom/vim-mode/pull/653) add a short highlight when text is yanked (needs tests)
 * [#686](https://github.com/atom/vim-mode/pull/686) add vertical/horizontal split key bindings to tree-view
 * [#689](https://github.com/atom/vim-mode/pull/689) improve ip/ap paragraph text objects
 * [#710](https://github.com/atom/vim-mode/pull/710) make multiple cursor delete work once, not one-by-one
@@ -44,6 +43,7 @@ Finally, these may never be merged.
 * [#476](https://github.com/atom/vim-mode/pull/476) can't exit visual mode with `v` (works now)
 * [#506](https://github.com/atom/vim-mode/pull/506) show prefix char in command input (ignored by maintainers)
 * [#510](https://github.com/atom/vim-mode/pull/510) beep when search history is exhausted (not in vim?)
+* [#653](https://github.com/atom/vim-mode/pull/653) highlight when text is yanked (implement with hook instead)
 
 
 ### Installing
