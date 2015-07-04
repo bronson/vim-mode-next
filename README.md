@@ -50,31 +50,19 @@ Finally, these may never be merged.
 
 ### Installing
 
-Vim-mode and vim-mode-next are deeply and seriously incompatible (of course).
-When you enable vim-mode-next, you must disable vim-mode and restart Atom.
+First, disable vim-mode and restart Atom.  vim-mode and vim-mode-next are, unsurprisingly, incompatible.
 
-You can install vim-mode-next as usual in the Atom preferences pane,
-or by running:
-
-    apm install vim-mode-next
+Then, install vim-mode-next as you would any other Atom package.
 
 
 #### Interesting Packages
 
 Consider installing these packages to provide even more Vim finger-feel:
 
-* [ex-mode](https://atom.io/packages/ex-mode)
-
-* [cursor-history](https://atom.io/packages/cursor-history) and add the following to your keymap.cson:
-
-  ```cson
-  'atom-text-editor.vim-mode.command-mode':
-    'ctrl-i': 'cursor-history:next'
-    'ctrl-o': 'cursor-history:prev'
-  ```
-
-* [vim-surround](https://atom.io/packages/vim-surround)
-
+* [ex-mode](https://atom.io/packages/ex-mode) to provide the start of a working command line.
+* [cursor-history](https://atom.io/packages/cursor-history) implements ctrl-i/ctrl-o navigation.
+* [vim-surround](https://atom.io/packages/vim-surround) starts implementing
+  [tpope's plugin](https://github.com/tpope/vim-surround).
 * [open-this](https://atom.io/packages/open-this) may have some functionality that
   [#727](https://github.com/atom/vim-mode/pull/727) doesn't.
 
@@ -83,9 +71,9 @@ Consider installing these packages to provide even more Vim finger-feel:
 
 The [ready branch](https://github.com/bronson/vim-mode-next/tree/ready)
 is where the action is.  It contains the the raw pull requests and
-conflict resolutions.  This is where all the work happens.
+conflict resolutions.
 
 The [master branch](https://github.com/bronson/vim-mode-next/tree/master)
-includes the ready branch, plus additional commits specific to vim-mode-next
+includes the latest ready branch plus additional commits specific to vim-mode-next
 (like this README).  Unlike every other git repository out there,
-this branch is completely uninteresting.
+the master branch is completely uninteresting.
