@@ -76,9 +76,6 @@
   'ctrl-r _': 'vim-mode:insert-mode-put'
   'ctrl-r "': 'vim-mode:insert-mode-put'
 
-  'ctrl-y': 'vim-mode:copy-from-line-above'
-  'ctrl-e': 'vim-mode:copy-from-line-below'
-
 'atom-text-editor.vim-mode:not(.insert-mode)':
   'h': 'vim-mode:move-left'
   'left': 'vim-mode:move-left'
