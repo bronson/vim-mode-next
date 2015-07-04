@@ -22,7 +22,6 @@ These pull requests are merged but not in vim-mode yet.
 * [#717](https://github.com/atom/vim-mode/pull/717) implement W (whole word) text object
 * [#718](https://github.com/atom/vim-mode/pull/718) make find (ftFT) state global
 * [#720](https://github.com/atom/vim-mode/pull/720) add ctrl-r in insert mode to paste register
-* [#721](https://github.com/atom/vim-mode/pull/721) add ctrl-e/ctrl-y to copy in insert mode
 * [#723](https://github.com/atom/vim-mode/pull/723) add ctrl-^ to select recent tab (needs tests)
 * [#724](https://github.com/atom/vim-mode/pull/724) add gD, goto global definiton
 * [#727](https://github.com/atom/vim-mode/pull/727) add gf, goto file under cursor (needs tests)
@@ -34,6 +33,7 @@ These are not merged because they're not ready but, oh, how I wish they were.
 * [#513](https://github.com/atom/vim-mode/pull/513) add move window operations
 * [#581](https://github.com/atom/vim-mode/pull/581) dw at end of line should not wrap line
 * [#658](https://github.com/atom/vim-mode/pull/658) implement blockwise visual select
+* [#721](https://github.com/atom/vim-mode/pull/721) add ctrl-e/ctrl-y to copy in insert mode (weird errors)
 
 Finally, these may never be merged.
 
