@@ -29,14 +29,19 @@ These pull requests are merged here but they're not in vim-mode yet.
 * [#727](https://github.com/atom/vim-mode/pull/727) add gf, goto file under cursor (needs tests)
 * [#732](https://github.com/atom/vim-mode/pull/732) make ctrl-t return from symbol
 
-And these are not merged here because they're not ready but, oh, how I wish they were.
+These are not merged here because they're not ready but, oh, how I wish they were.
 
+* [#508](https://github.com/atom/vim-mode/pull/508) rename command mode to normal mode
 * [#513](https://github.com/atom/vim-mode/pull/513) add move window operations
 * [#581](https://github.com/atom/vim-mode/pull/581) dw at end of line should not wrap line
 * [#658](https://github.com/atom/vim-mode/pull/658) implement blockwise visual select
 
-TODO:
+Finally, may never be merged:
 
+* [#471](https://github.com/atom/vim-mode/pull/471) lazy load to save startup time (not worth it)
+* [#476](https://github.com/atom/vim-mode/pull/476) can't exit visual mode with `v` (works now)
+* [#506](https://github.com/atom/vim-mode/pull/506) show prefix char in command input (ignored by maintainers)
+* [#510](https://github.com/atom/vim-mode/pull/510) beep when search history is exhausted (not in vim?)
 
 ### Installing
 
