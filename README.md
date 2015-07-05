@@ -70,11 +70,11 @@ Consider installing these packages to provide even more Vim finger-feel:
 
 #### vim-mode-next Branches
 
-The [ready branch](https://github.com/bronson/vim-mode-next/tree/ready)
+The [ready branch](https://github.com/bronson/vim-mode-next/commits/ready)
 is where the action is.  It contains the the raw pull requests and
 conflict resolutions.
 
-The [master branch](https://github.com/bronson/vim-mode-next/tree/master)
+The [master branch](https://github.com/bronson/vim-mode-next/commits/master)
 includes the latest ready branch plus additional commits specific to vim-mode-next
 (like this README).  Unlike every other git repository out there,
 the master branch is completely uninteresting.
