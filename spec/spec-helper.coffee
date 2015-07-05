@@ -10,7 +10,8 @@ beforeEach ->
 afterEach ->
   if Grim.getDeprecationsLength() > 0
     Grim.logDeprecations()
-    fail 'Deprecated APIs were called'
+    Grim.clearDeprecations()
+    this.fail 'Deprecated APIs were called'
 
 
 getEditorElement = (callback) ->
