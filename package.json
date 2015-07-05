@@ -1,7 +1,7 @@
 {
   "name": "vim-mode-next",
   "main": "./lib/vim-mode",
-  "version": "0.54.10",
+  "version": "0.54.11",
   "description": "vim-mode plus well behaved in-progress patches",
   "license": "MIT",
   "repository": "https://github.com/bronson/vim-mode-next",
