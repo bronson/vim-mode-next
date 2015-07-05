@@ -4,6 +4,13 @@ Inspired by the [linux-next branch](https://lwn.net/Articles/289013/), vim-mode-
 an integration area for mostly-finished [vim-mode pull requests](https://github.com/atom/vim-mode/pulls).
 
 
+## Installing
+
+First, disable vim-mode and restart Atom.  vim-mode and vim-mode-next are, unsurprisingly, incompatible.
+
+Then, install vim-mode-next as you would any other Atom package.
+
+
 ## Status
 
 These pull requests are merged but not in vim-mode yet.
@@ -49,14 +56,7 @@ Finally, these may never be merged.
 * [#653](https://github.com/atom/vim-mode/pull/653) highlight when text is yanked (implement with hook instead)
 
 
-### Installing
-
-First, disable vim-mode and restart Atom.  vim-mode and vim-mode-next are, unsurprisingly, incompatible.
-
-Then, install vim-mode-next as you would any other Atom package.
-
-
-#### Interesting Packages
+## Interesting Packages
 
 Consider installing these packages to provide even more Vim finger-feel:
 
