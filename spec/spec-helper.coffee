@@ -2,9 +2,16 @@ VimState = require '../lib/vim-state'
 GlobalVimState = require '../lib/global-vim-state'
 VimMode  = require '../lib/vim-mode'
 StatusBarManager = require '../lib/status-bar-manager'
+Grim = require 'grim'
 
 beforeEach ->
   atom.workspace ||= {}
+
+afterEach ->
+  if Grim.getDeprecationsLength() > 0
+    Grim.logDeprecations()
+    fail 'Deprecated APIs were called'
+
 
 getEditorElement = (callback) ->
   textEditor = null
