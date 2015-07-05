@@ -4,7 +4,6 @@
   "version": "0.54.10",
   "description": "vim-mode plus well behaved in-progress patches",
   "license": "MIT",
-  "private": true,
   "repository": "https://github.com/bronson/vim-mode-next",
   "engines": {
     "atom": ">0.151.0"
