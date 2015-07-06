@@ -1,5 +1,7 @@
-## HEAD
+## 0.54.12
 
+* Merge atom/vim-mode#740, fix redoing visual operations with `.`
+* Fix #2 where settings would sometimes be undefined
 * Use underline cursor for replace mode atom/vim-mode#573
 
 ## 0.54.11
