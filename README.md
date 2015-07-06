@@ -35,6 +35,7 @@ These pull requests are merged but not in vim-mode yet.
 * [#727](https://github.com/atom/vim-mode/pull/727) add gf, goto file under cursor (needs tests)
 * [#732](https://github.com/atom/vim-mode/pull/732) make ctrl-t return from symbol
 * [#738](https://github.com/atom/vim-mode/pull/738) make tests fail if deprecated calls are made
+* [#740](https://github.com/atom/vim-mode/pull/740) fix redoing visual mode operations with `.`
 
 These are not merged because they're not ready but, oh, how I wish they were.
 
