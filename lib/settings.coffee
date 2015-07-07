@@ -22,15 +22,6 @@ Object.keys(settings.config).forEach (k) ->
   settings[k] = ->
     atom.config.get('vim-mode.'+k)
 
-  # work around vim-mode's settings sometimes being undefined
-  # https://github.com/bronson/vim-mode-next/issues/2
-  atom.config.observe 'vim-mode-next.'+k, (val) ->
-    val = undefined if val is settings.config[k].default
-    atom.config.set 'vim-mode.'+k, val
-
-# ensure vim-mode has the proper schema too
-atom.config.setSchema 'vim-mode', {type: 'object', properties: settings.config}
-
 settings.defaultRegister = ->
   if settings.useClipboardAsDefaultRegister() then '*' else '"'
 
