@@ -1,3 +1,8 @@
+## 0.54.13
+
+* Unmerge [#568](https://github.com/atom/vim-mode/pull/568) to address [#4](https://github.com/bronson/vim-mode-next/issues/4)
+* Be a little more gentle with default settings to improve fix for [#2](https://github.com/bronson/vim-mode-next/issues/2)
+
 ## 0.54.12
 
 * Merge [#740](https://github.com/atom/vim-mode/pull/740) (fix redoing visual operations with `.`)

@@ -16,7 +16,6 @@ Then, install vim-mode-next as you would any other Atom package.
 These pull requests are merged but not in vim-mode yet.
 
 * [#558](https://github.com/atom/vim-mode/pull/558) implement zs and ze horizontal scrolling
-* [#568](https://github.com/atom/vim-mode/pull/568) cursor motion stops and restarts insert mode
 * [#573](https://github.com/atom/vim-mode/pull/573) add replace mode!!
 * [#591](https://github.com/atom/vim-mode/pull/591) yank should not scroll
 * [#609](https://github.com/atom/vim-mode/pull/609) allow inserting with a count and changing count when repeating
@@ -41,6 +40,7 @@ These are not merged because they're not ready but, oh, how I wish they were.
 
 * [#508](https://github.com/atom/vim-mode/pull/508) rename command mode to normal mode
 * [#513](https://github.com/atom/vim-mode/pull/513) add move window operations
+* [#568](https://github.com/atom/vim-mode/pull/568) cursor motion stops and restarts insert mode ([#4](https://github.com/bronson/vim-mode-next/issues/4))
 * [#581](https://github.com/atom/vim-mode/pull/581) dw at end of line should not wrap line
 * [#658](https://github.com/atom/vim-mode/pull/658) implement blockwise visual select
 
