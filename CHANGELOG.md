@@ -1,3 +1,7 @@
+## 0.54.14
+
+* Another try at fixing [#2](https://github.com/bronson/vim-mode-next/issues/2), this time without occasionally corrupting `~/.atom/config.cson`.
+
 ## 0.54.13
 
 * Unmerge [#568](https://github.com/atom/vim-mode/pull/568) to address [#4](https://github.com/bronson/vim-mode-next/issues/4)

@@ -31,6 +31,15 @@ module.exports =
     @disposables.add new Disposable =>
       @vimStates.forEach (vimState) -> vimState.destroy()
 
+    # copy vim-mode-next's settings into vim-mode's namespace
+    # this is a bad thing to do because plugins should only ever muck around in their own settings
+    # but, for now, this seems the best way to make the config code in vim-mode-next work
+    atom.config.setSchema 'vim-mode', {type: 'object', properties: settings.config}
+    Object.keys(settings.config).forEach (k) ->
+      atom.config.observe 'vim-mode-next.'+k, (val) ->
+        val = undefined if val is settings.config[k].default
+        atom.config.set 'vim-mode.'+k, val, save: false
+
   deactivate: ->
     @disposables.dispose()
 
