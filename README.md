@@ -50,8 +50,6 @@ Finally, these may never be merged.
 * [#397](https://github.com/atom/vim-mode/pull/397) ctrl-i/ctrl-o jump motions (see cursor-history package)
 * [#417](https://github.com/atom/vim-mode/pull/417) fix motion when yanking (works now)
 * [#432](https://github.com/atom/vim-mode/pull/432) highlight find motion (implement with hook instead)
-* [#471](https://github.com/atom/vim-mode/pull/471) lazy load to save startup time (not worth it)
-* [#476](https://github.com/atom/vim-mode/pull/476) can't exit visual mode with `v` (works now)
 * [#506](https://github.com/atom/vim-mode/pull/506) show prefix char in command input (ignored by maintainers)
 * [#510](https://github.com/atom/vim-mode/pull/510) beep when search history is exhausted (not in vim)
 * [#653](https://github.com/atom/vim-mode/pull/653) highlight when text is yanked (implement with hook instead)
