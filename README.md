@@ -15,7 +15,6 @@ Then, install vim-mode-next as you would any other Atom package.
 
 These pull requests are merged but not in vim-mode yet.
 
-* [#558](https://github.com/atom/vim-mode/pull/558) implement zs and ze horizontal scrolling
 * [#573](https://github.com/atom/vim-mode/pull/573) add replace mode!!
 * [#591](https://github.com/atom/vim-mode/pull/591) yank should not scroll
 * [#609](https://github.com/atom/vim-mode/pull/609) allow inserting with a count and changing count when repeating
@@ -23,7 +22,6 @@ These pull requests are merged but not in vim-mode yet.
 * [#623](https://github.com/atom/vim-mode/pull/623) ensure t motion includes the character below the cursor
 * [#686](https://github.com/atom/vim-mode/pull/686) add vertical/horizontal split key bindings to tree-view
 * [#696](https://github.com/atom/vim-mode/pull/696) improve ip/ap paragraph text objects
-* [#710](https://github.com/atom/vim-mode/pull/710) make multiple cursor delete work once, not one-by-one
 * [#711](https://github.com/atom/vim-mode/pull/711) fix p at end-of-line leaving cursor in wrong position
 * [#717](https://github.com/atom/vim-mode/pull/717) implement W (whole word) text object
 * [#718](https://github.com/atom/vim-mode/pull/718) make find (ftFT) state global
@@ -46,9 +44,7 @@ These are not merged because they're not ready but, oh, how I wish they were.
 
 Finally, these may never be merged.
 
-* [#386](https://github.com/atom/vim-mode/pull/386) fix broken dj and dk tests (works now)
 * [#397](https://github.com/atom/vim-mode/pull/397) ctrl-i/ctrl-o jump motions (see cursor-history package)
-* [#417](https://github.com/atom/vim-mode/pull/417) fix motion when yanking (works now)
 * [#432](https://github.com/atom/vim-mode/pull/432) highlight find motion (implement with hook instead)
 * [#506](https://github.com/atom/vim-mode/pull/506) show prefix char in command input (ignored by maintainers)
 * [#510](https://github.com/atom/vim-mode/pull/510) beep when search history is exhausted (not in vim)
