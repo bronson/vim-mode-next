@@ -1,6 +1,12 @@
+## 0.54.15
+
+* Update to latest vim-mode master branch
+* Re-enable [#568](https://github.com/atom/vim-mode/pull/568) with bugfix
+* Merge [#747](https://github.com/atom/vim-mode/pull/747) (exit visual mode on indent/unindent)
+
 ## 0.54.14
 
-* Another try at fixing [#2](https://github.com/bronson/vim-mode-next/issues/2), this time without occasionally corrupting `~/.atom/config.cson`.
+* Another try at fixing [#2](https://github.com/bronson/vim-mode-next/issues/2), this time without occasionally corrupting `~/.atom/config.cson`
 
 ## 0.54.13
 
@@ -11,7 +17,7 @@
 
 * Merge [#740](https://github.com/atom/vim-mode/pull/740) (fix redoing visual operations with `.`)
 * Fix [issue 2](https://github.com/bronson/vim-mode-next/issues/2) where settings would sometimes be undefined
-* Use underline cursor for [#573](https://github.com/atom/vim-mode/pull/573) (replace mode).
+* Use underline cursor for [#573](https://github.com/atom/vim-mode/pull/573) (replace mode)
 
 ## 0.54.11
 
