@@ -184,9 +184,10 @@ class MoveRight extends Motion
     _.times count, =>
       wrapToNextLine = settings.wrapLeftRightMotion()
 
-      # when the motion is combined with an operator, we will only wrap to the next line
-      # if we are already at the end of the line (after the last character)
-      wrapToNextLine = false if @vimState.mode is 'operator-pending' and not cursor.isAtEndOfLine()
+      # when the motion is in insert mode or is combined with an operator,
+      # we will only wrap to the next line if we are already
+      # at the end of the line (after the last character)
+      wrapToNextLine = false if (@vimState.mode is 'insert' or @vimState.mode is 'operator-pending') and not cursor.isAtEndOfLine()
 
       cursor.moveRight() unless cursor.isAtEndOfLine()
       cursor.moveRight() if wrapToNextLine and cursor.isAtEndOfLine()
