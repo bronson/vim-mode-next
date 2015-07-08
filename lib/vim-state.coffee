@@ -109,6 +109,10 @@ class VimState
       'move-up': => new Motions.MoveUp(@editor, this)
       'move-down': => new Motions.MoveDown(@editor, this)
       'move-right': => new Motions.MoveRight(@editor, this)
+      'move-left-insert': => @interruptInsertMode(); [new Motions.MoveLeft(@editor, this), new Operators.InsertCancellable(@editor, this)]
+      'move-up-insert': => @interruptInsertMode(); [new Motions.MoveUp(@editor, this), new Operators.InsertCancellable(@editor, this)]
+      'move-down-insert': => @interruptInsertMode(); [new Motions.MoveDown(@editor, this), new Operators.InsertCancellable(@editor, this)]
+      'move-right-insert': => @interruptInsertMode(); [new Motions.MoveRight(@editor, this), new Operators.InsertCancellable(@editor, this)]
       'move-to-next-word': => new Motions.MoveToNextWord(@editor, this)
       'move-to-next-whole-word': => new Motions.MoveToNextWholeWord(@editor, this)
       'move-to-end-of-word': => new Motions.MoveToEndOfWord(@editor, this)
@@ -450,6 +454,16 @@ class VimState
       @replaceModeListener.dispose()
       @subscriptions.remove @replaceModeListener
       @replaceModeListener = null
+
+  interruptInsertMode: ->
+    return unless @mode is 'insert'
+    changes = getChangesSinceCheckpoint(@editor.buffer, @insertionCheckpoint)
+    item = @inputOperator(@history[0])
+    if item?
+      item.confirmChanges(changes, @insertionCheckpoint, interrupted: true)
+    @editor.groupChangesSinceCheckpoint(@insertionCheckpoint)
+    @insertionCheckpoint = null
+    @setInsertionCheckpoint()
 
   deactivateVisualMode: ->
     return unless @mode is 'visual'
