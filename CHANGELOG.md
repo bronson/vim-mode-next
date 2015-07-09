@@ -1,3 +1,8 @@
+## 0.55.0
+
+* Updated to vim-mode 0.55.0
+* Removed [#686](https://github.com/atom/vim-mode/pull/686), belongs in user's keymap.cson
+
 ## 0.54.15
 
 * Update to latest vim-mode master branch
