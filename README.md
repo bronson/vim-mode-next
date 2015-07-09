@@ -21,7 +21,6 @@ These pull requests are merged but not in vim-mode yet.
 * [#609](https://github.com/atom/vim-mode/pull/609) allow inserting with a count and changing count when repeating
 * [#611](https://github.com/atom/vim-mode/pull/611) make g~g~, gugu, and gUgU change case of the whole line
 * [#623](https://github.com/atom/vim-mode/pull/623) ensure t motion includes the character below the cursor
-* [#686](https://github.com/atom/vim-mode/pull/686) add vertical/horizontal split key bindings to tree-view
 * [#696](https://github.com/atom/vim-mode/pull/696) improve ip/ap paragraph text objects
 * [#711](https://github.com/atom/vim-mode/pull/711) fix p at end-of-line leaving cursor in wrong position
 * [#717](https://github.com/atom/vim-mode/pull/717) implement W (whole word) text object
@@ -50,6 +49,7 @@ Finally, these may never be merged.
 * [#506](https://github.com/atom/vim-mode/pull/506) show prefix char in command input (ignored by maintainers)
 * [#510](https://github.com/atom/vim-mode/pull/510) beep when search history is exhausted (not in vim)
 * [#653](https://github.com/atom/vim-mode/pull/653) highlight when text is yanked (implement with hook instead)
+* [#686](https://github.com/atom/vim-mode/pull/686) add vertical/horizontal split key bindings to tree-view
 
 
 ## Interesting Packages
@@ -62,6 +62,14 @@ Consider installing these packages to provide even more Vim finger-feel:
   [tpope's plugin](https://github.com/tpope/vim-surround).
 * [open-this](https://atom.io/packages/open-this) may have some functionality that
   [#727](https://github.com/atom/vim-mode/pull/727) doesn't.
+
+
+## Interesting Ideas
+
+Why restrict your vim-mode experience to the text buffer?
+
+* [#686](https://github.com/atom/vim-mode/pull/686) add vertical/horizontal split key bindings to tree-view
+* [#745](https://github.com/atom/vim-mode/pull/745) Make `j` and `k` navigate the fuzzy finder and search results
 
 
 #### vim-mode-next Branches
