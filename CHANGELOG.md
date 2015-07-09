@@ -5,9 +5,9 @@
 
 ## 0.54.15
 
-* Update to latest vim-mode master branch
-* Re-enable [#568](https://github.com/atom/vim-mode/pull/568) with bugfix
-* Merge [#747](https://github.com/atom/vim-mode/pull/747) (exit visual mode on indent/unindent)
+* Updated to latest vim-mode master branch
+* Re-enabled [#568](https://github.com/atom/vim-mode/pull/568) with bugfix
+* Merged [#747](https://github.com/atom/vim-mode/pull/747) (exit visual mode on indent/unindent)
 
 ## 0.54.14
 
@@ -15,18 +15,18 @@
 
 ## 0.54.13
 
-* Unmerge [#568](https://github.com/atom/vim-mode/pull/568) to address [#4](https://github.com/bronson/vim-mode-next/issues/4)
+* Unmerged [#568](https://github.com/atom/vim-mode/pull/568) to address [#4](https://github.com/bronson/vim-mode-next/issues/4)
 * Be a little more gentle with default settings to improve fix for [#2](https://github.com/bronson/vim-mode-next/issues/2)
 
 ## 0.54.12
 
-* Merge [#740](https://github.com/atom/vim-mode/pull/740) (fix redoing visual operations with `.`)
-* Fix [issue 2](https://github.com/bronson/vim-mode-next/issues/2) where settings would sometimes be undefined
-* Use underline cursor for [#573](https://github.com/atom/vim-mode/pull/573) (replace mode)
+* Merged [#740](https://github.com/atom/vim-mode/pull/740) (fix redoing visual operations with `.`)
+* Fixed [issue 2](https://github.com/bronson/vim-mode-next/issues/2) where settings would sometimes be undefined
+* Added underline cursor for [#573](https://github.com/atom/vim-mode/pull/573) (replace mode)
 
 ## 0.54.11
 
-* Error is worked around, re-enable [#721](https://github.com/atom/vim-mode/pull/721) (ctrl-e/ctrl-y in insert mode)
+* Error is worked around, re-enabled [#721](https://github.com/atom/vim-mode/pull/721) (ctrl-e/ctrl-y in insert mode)
 
 ## 0.54.10
 
