@@ -143,26 +143,6 @@ class Change extends Insert
     @vimState.activateInsertMode()
     @typingCompleted = true
 
-class Substitute extends Insert
-  register: null
-
-  constructor: (@editor, @vimState, {@selectOptions}={}) ->
-    @register = settings.defaultRegister()
-
-  execute: (count=1) ->
-    @vimState.setInsertionCheckpoint() unless @typingCompleted
-    _.times count, =>
-      @editor.selectRight()
-    @setTextRegister(@register, @editor.getSelectedText())
-    @editor.delete()
-
-    if @typingCompleted
-      @typedText = @typedText.trimLeft()
-      return super(1)
-
-    @vimState.activateInsertMode()
-    @typingCompleted = true
-
 class SubstituteLine extends Insert
   register: null
 
@@ -263,6 +243,5 @@ module.exports = {
   InsertCancellable,
   ReplaceMode,
   Change,
-  Substitute,
   SubstituteLine
 }
