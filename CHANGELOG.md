@@ -1,5 +1,6 @@
 ## 0.55.1
 
+* Pulled the autocomplete bugfix commit for [#568](https://github.com/atom/vim-mode/pull/568)
 * Updated to latest vim-mode master branch (merges[#720](https://github.com/atom/vim-mode/pull/720)
 * Added [#757](https://github.com/atom/vim-mode/pull/757) (dupe code for substitute)
   and [#758](https://github.com/atom/vim-mode/pull/758) (map pageup/pagedown)
