@@ -1,3 +1,9 @@
+## 0.55.1
+
+* Updated to latest vim-mode master branch (merges[#720](https://github.com/atom/vim-mode/pull/720)
+* Added [#757](https://github.com/atom/vim-mode/pull/757) (dupe code for substitute)
+  and [#758](https://github.com/atom/vim-mode/pull/758) (map pageup/pagedown)
+
 ## 0.55.0
 
 * Updated to vim-mode 0.55.0
