@@ -205,9 +205,9 @@ class VimState
   # Private: Push the given operations onto the operation stack, then process
   # it.
   pushOperations: (operations) ->
-    @processing = true
+    return unless operations?
     try
-      return unless operations?
+      @processing = true
       operations = [operations] unless _.isArray(operations)
 
       for operation in operations
