@@ -72,6 +72,9 @@
   'ctrl-r _': 'vim-mode:insert-mode-put'
   'ctrl-r "': 'vim-mode:insert-mode-put'
 
+'atom-text-editor.vim-mode.replace-mode':
+  'backspace': 'vim-mode:replace-mode-backspace'
+
 'atom-text-editor.vim-mode:not(.insert-mode)':
   'h': 'vim-mode:move-left'
   'left': 'vim-mode:move-left'
