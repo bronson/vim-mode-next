@@ -116,7 +116,7 @@ class Change extends Insert
   standalone: false
   register: null
 
-  constructor: (@editor, @vimState, {@selectOptions}={}) ->
+  constructor: (@editor, @vimState) ->
     @register = settings.defaultRegister()
 
   # Public: Changes the text selected by the given motion.
@@ -146,7 +146,7 @@ class Change extends Insert
 class Substitute extends Insert
   register: null
 
-  constructor: (@editor, @vimState, {@selectOptions}={}) ->
+  constructor: (@editor, @vimState) ->
     @register = settings.defaultRegister()
 
   execute: (count=1) ->
@@ -166,7 +166,7 @@ class Substitute extends Insert
 class SubstituteLine extends Insert
   register: null
 
-  constructor: (@editor, @vimState, {@selectOptions}={}) ->
+  constructor: (@editor, @vimState) ->
     @register = settings.defaultRegister()
 
   execute: (count=1) ->
