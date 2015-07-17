@@ -18,9 +18,6 @@ describe "TextObjects", ->
     options.element ?= editorElement
     helpers.keydown(key, options)
 
-  commandModeInputKeydown = (key, opts = {}) ->
-    editor.commandModeInputView.editorElement.getModel().setText(key)
-
   describe "the 'iw' text object", ->
     beforeEach ->
       editor.setText("12345 abcde ABCDE")
