@@ -1,3 +1,5 @@
+* Updated to latest vim-mode master branch (merges[#772](https://github.com/atom/vim-mode/pull/772)
+
 ## 0.55.1
 
 * Pulled the autocomplete bugfix commit for [#568](https://github.com/atom/vim-mode/pull/568)
