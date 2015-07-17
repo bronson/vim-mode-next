@@ -8,7 +8,6 @@
     * `ctrl-e` to copy the character right below the cursor
 * Replace mode can be entered using `R`
   * Limitations:
-    * Backspace behaves like in insert mode, it doesn't undo the last typed character
     * Repeating with `.` may get a bit confused by multiple cursors or when more than one line was typed
 * Registers are a work in progress
   * What Exists:
