@@ -2191,6 +2191,29 @@ describe "Operators", ->
 
       expect(editor.getText()).toBe "12abcde\n67890"
 
+    it "treats backspace as undo", ->
+      editor.insertText "foo"
+      keydown "R", shift: true
+
+      editor.insertText "a"
+      editor.insertText "b"
+      expect(editor.getText()).toBe "12fooab5\n67890"
+
+      keydown 'backspace', raw: true
+      expect(editor.getText()).toBe "12fooa45\n67890"
+
+      editor.insertText "c"
+
+      expect(editor.getText()).toBe "12fooac5\n67890"
+
+      keydown 'backspace', raw: true
+      keydown 'backspace', raw: true
+
+      expect(editor.getText()).toBe "12foo345\n67890"
+
+      keydown 'backspace', raw: true
+      expect(editor.getText()).toBe "12foo345\n67890"
+
     it "can be repeated", ->
       keydown "R", shift: true
       editor.insertText "ab"
@@ -2209,7 +2232,20 @@ describe "Operators", ->
       # FIXME don't know how to test this (also, depends on PR #568)
 
     it "repeats correctly when backspace was used in the text", ->
-      # FIXME don't know how to test this
+      keydown "R", shift: true
+      editor.insertText "a"
+      keydown 'backspace', raw: true
+      editor.insertText "b"
+      keydown 'escape'
+      editor.setCursorBufferPosition([1, 2])
+      keydown '.'
+      expect(editor.getText()).toBe "12b45\n67b90"
+      expect(editor.getCursorScreenPosition()).toEqual [1, 2]
+
+      editor.setCursorBufferPosition([0, 4])
+      keydown '.'
+      expect(editor.getText()).toBe "12b4b\n67b90"
+      expect(editor.getCursorScreenPosition()).toEqual [0, 4]
 
     it "doesn't replace a character if newline is entered", ->
       keydown "R", shift: true
