@@ -1,3 +1,7 @@
+## 0.55.3
+
+* Reverted [#764](https://github.com/atom/vim-mode/pull/764) because it broke `dd`
+
 ## 0.55.2
 
 * Merged:

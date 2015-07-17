@@ -35,7 +35,6 @@ These pull requests are merged but not in vim-mode yet.
 * [#757](https://github.com/atom/vim-mode/pull/757) implement substitute operator using change
 * [#758](https://github.com/atom/vim-mode/pull/758) add shortcuts for pageup/pagedown
 * [#763](https://github.com/atom/vim-mode/pull/763) esc cancels insert-mode ctrl-r
-* [#764](https://github.com/atom/vim-mode/pull/764) cancel operator-pending on unrecognized keystrokes
 * [#765](https://github.com/atom/vim-mode/pull/765) repeating without search history should do nothing
 * [#766](https://github.com/atom/vim-mode/pull/766) fix: isLinewise shouldn't be required
 * [#767](https://github.com/atom/vim-mode/pull/767) harmonize selection directions (reversion) on `o`
@@ -51,6 +50,7 @@ These are not merged because they're not ready but, oh, how I wish they were.
 * [#581](https://github.com/atom/vim-mode/pull/581) dw at end of line should not wrap line
 * [#658](https://github.com/atom/vim-mode/pull/658) implement blockwise visual select
 * [#762](https://github.com/atom/vim-mode/pull/762) implement ex-mode directly
+* [#764](https://github.com/atom/vim-mode/pull/764) cancel operator-pending on unrecognized keystrokes
 * [#769](https://github.com/atom/vim-mode/pull/769) add subword movement support
 
 Finally, these may never be merged.
