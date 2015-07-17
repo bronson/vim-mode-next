@@ -39,6 +39,10 @@ These pull requests are merged but not in vim-mode yet.
 * [#765](https://github.com/atom/vim-mode/pull/765) repeating without search history should do nothing
 * [#766](https://github.com/atom/vim-mode/pull/766) fix: isLinewise shouldn't be required
 * [#767](https://github.com/atom/vim-mode/pull/767) harmonize selection directions (reversion) on `o`
+* [#770](https://github.com/atom/vim-mode/pull/770) use onDidChangeCursorPosition to keep cursor in line
+* [#774](https://github.com/atom/vim-mode/pull/774) cancel the c operator when a motion doesn't match
+* [#777](https://github.com/atom/vim-mode/pull/777) hide command input field better
+* [#778](https://github.com/atom/vim-mode/pull/778) add yank-to-last-character-of-line operation
 
 These are not merged because they're not ready but, oh, how I wish they were.
 
@@ -57,6 +61,7 @@ Finally, these may never be merged.
 * [#510](https://github.com/atom/vim-mode/pull/510) beep when search history is exhausted (not in vim)
 * [#653](https://github.com/atom/vim-mode/pull/653) highlight when text is yanked (implement with hook instead)
 * [#686](https://github.com/atom/vim-mode/pull/686) add vertical/horizontal split key bindings to tree-view
+* [#776](https://github.com/atom/vim-mode/pull/776) hide input outline (777 looks like a better pr)
 
 
 ## Interesting Packages
