@@ -12,7 +12,6 @@
  * [#763](https://github.com/atom/vim-mode/pull/763) cancel ctrl-r
 * Updated to latest replace mode patch [#573](https://github.com/atom/vim-mode/pull/573)
 * Updated to latest vim-mode master branch (merges [#772](https://github.com/atom/vim-mode/pull/772))
-* Removed [#686](https://github.com/atom/vim-mode/pull/686), no need to set keybindings on other packages
 
 ## 0.55.1
 
