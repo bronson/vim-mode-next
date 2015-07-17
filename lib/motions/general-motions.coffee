@@ -89,9 +89,6 @@ class Motion
   moveSelection: (selection, count, options) ->
     selection.modifySelection => @moveCursor(selection.cursor, count, options)
 
-  ensureCursorIsWithinLine: (cursor) ->
-    Utils.ensureCursorIsWithinLine(cursor, @vimState)
-
   isComplete: -> true
 
   isRecordable: -> false
@@ -173,9 +170,8 @@ class MoveLeft extends Motion
   operatesInclusively: false
 
   moveCursor: (cursor, count=1) ->
-    _.times count, =>
+    _.times count, ->
       cursor.moveLeft() if not cursor.isAtBeginningOfLine() or settings.wrapLeftRightMotion()
-      @ensureCursorIsWithinLine(cursor)
 
 class MoveRight extends Motion
   operatesInclusively: false
@@ -190,16 +186,14 @@ class MoveRight extends Motion
 
       cursor.moveRight() unless cursor.isAtEndOfLine()
       cursor.moveRight() if wrapToNextLine and cursor.isAtEndOfLine()
-      @ensureCursorIsWithinLine(cursor)
 
 class MoveUp extends Motion
   operatesLinewise: true
 
   moveCursor: (cursor, count=1) ->
-    _.times count, =>
+    _.times count, ->
       unless cursor.getScreenRow() is 0
         cursor.moveUp()
-        @ensureCursorIsWithinLine(cursor)
 
 class MoveDown extends Motion
   operatesLinewise: true
@@ -208,7 +202,6 @@ class MoveDown extends Motion
     _.times count, =>
       unless cursor.getScreenRow() is @editor.getLastScreenRow()
         cursor.moveDown()
-        @ensureCursorIsWithinLine(cursor)
 
 class MoveToPreviousWord extends Motion
   operatesInclusively: false
@@ -359,10 +352,9 @@ class MoveToLastCharacterOfLine extends Motion
   operatesInclusively: false
 
   moveCursor: (cursor, count=1) ->
-    _.times count, =>
+    _.times count, ->
       cursor.moveToEndOfLine()
       cursor.goalColumn = Infinity
-      @ensureCursorIsWithinLine(cursor)
 
 class MoveToLastNonblankCharacterOfLineAndDown extends Motion
   operatesInclusively: true
