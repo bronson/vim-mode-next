@@ -1,15 +1,15 @@
 ## 0.55.2
 
 * Merged:
- * [#770](https://github.com/atom/vim-mode/pull/770) keep cursor in line
- * [#774](https://github.com/atom/vim-mode/pull/774) cancel c operator
- * [#777](https://github.com/atom/vim-mode/pull/777) hide input field
  * [#778](https://github.com/atom/vim-mode/pull/778) add yank-to-last-char
- * [#765](https://github.com/atom/vim-mode/pull/765) search history repeat
- * [#766](https://github.com/atom/vim-mode/pull/766) remove isLinewise
+ * [#777](https://github.com/atom/vim-mode/pull/777) hide input field
+ * [#774](https://github.com/atom/vim-mode/pull/774) cancel c operator
+ * [#770](https://github.com/atom/vim-mode/pull/770) keep cursor in line
  * [#767](https://github.com/atom/vim-mode/pull/767) harmonize selection directions
- * [#763](https://github.com/atom/vim-mode/pull/763) cancel ctrl-r
+ * [#766](https://github.com/atom/vim-mode/pull/766) remove isLinewise
+ * [#765](https://github.com/atom/vim-mode/pull/765) search history repeat
  * [#764](https://github.com/atom/vim-mode/pull/764) cancel operator pending
+ * [#763](https://github.com/atom/vim-mode/pull/763) cancel ctrl-r
 * Updated to latest replace mode patch [#573](https://github.com/atom/vim-mode/pull/573)
 * Updated to latest vim-mode master branch (merges [#772](https://github.com/atom/vim-mode/pull/772))
 * Removed [#686](https://github.com/atom/vim-mode/pull/686), no need to set keybindings on other packages
