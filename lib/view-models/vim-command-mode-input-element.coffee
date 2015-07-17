@@ -2,28 +2,24 @@ class VimCommandModeInputElement extends HTMLDivElement
   createdCallback: ->
     @className = "command-mode-input"
 
-    @editorContainer = document.createElement("div")
-    @editorContainer.className = "editor-container"
-
-    @appendChild(@editorContainer)
-
   initialize: (@viewModel, opts = {}) ->
     if opts.class?
-      @editorContainer.classList.add(opts.class)
-
-    if opts.hidden
-      @editorContainer.style.height = "0px"
+      @classList.add(opts.class)
 
     @editorElement = document.createElement "atom-text-editor"
     @editorElement.classList.add('editor')
     @editorElement.getModel().setMini(true)
     @editorElement.setAttribute('mini', '')
-    @editorContainer.appendChild(@editorElement)
+    @appendChild(@editorElement)
 
     @singleChar = opts.singleChar
     @defaultText = opts.defaultText ? ''
 
     @panel = atom.workspace.addBottomPanel(item: this, priority: 100)
+
+    if opts.hidden
+      parentPanelElement = @panel.getItem().parentElement
+      parentPanelElement.classList.add('vim-hidden-command-mode-input')
 
     @focus()
     @handleEvents()

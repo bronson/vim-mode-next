@@ -214,7 +214,6 @@ class Yank extends Operator
     @setTextRegister(@register, text)
 
     @editor.setSelectedBufferRanges(newPositions.map (p) -> new Range(p, p))
-    Utils.ensureCursorIsWithinLine(cursor, @vimState) for cursor in @editor.getCursors()
 
     if oldLastCursorPosition.isEqual(@editor.getCursorBufferPosition())
       @editor.setScrollLeft(oldLeft)

@@ -32,6 +32,13 @@ getEditorElement = (callback) ->
 
     callback(element)
 
+  # mock parentElement for the item in atom panels
+  origAddBottomPanel = atom.workspace.addBottomPanel
+  atom.workspace.addBottomPanel = ->
+    panel = origAddBottomPanel.apply(this, arguments)
+    document.createElement('div').appendChild(panel.getItem()) unless panel.getItem().parentElement?
+    panel
+
 mockPlatform = (editorElement, platform) ->
   wrapper = document.createElement('div')
   wrapper.className = platform
