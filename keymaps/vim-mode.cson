@@ -77,6 +77,7 @@
   'ctrl-r %': 'vim-mode:insert-mode-put'
   'ctrl-r _': 'vim-mode:insert-mode-put'
   'ctrl-r "': 'vim-mode:insert-mode-put'
+  'ctrl-r escape': 'abort!'
 
   'ctrl-y': 'vim-mode:copy-from-line-above'
   'ctrl-e': 'vim-mode:copy-from-line-below'
