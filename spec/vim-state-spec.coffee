@@ -507,39 +507,3 @@ describe "VimState", ->
       keydown('`')
       commandModeInputKeydown('q')
       expect(editor.getCursorScreenPosition()).toEqual [1, 2]
-
-  describe "unknown key bindings", ->
-    beforeEach ->
-      editor.setText "line one\n line two\n"
-      editor.setCursorBufferPosition [0, 0]
-
-    describe "in operator-pending mode", ->
-      beforeEach ->
-        keydown 'c'
-
-      it "cancels short pending operations on unrecognized keybinding", ->
-        keydown 'q' #cq doesn't work, should cancel
-        keydown 'w'
-        expect(editor.getCursorBufferPosition()).toEqual [0, 5]
-        expect(editor.getText()).toBe "line one\n line two\n"
-        expect(vimState.mode).toEqual 'command'
-
-      it "cancels long pending operations on unrecognized keybinding", ->
-        keydown 'i'
-        keydown '3' #i3 is unrecognized, should cancel the whole `ci3` sequence
-        keydown 'w'
-        expect(editor.getCursorBufferPosition()).toEqual [0, 5]
-        expect(editor.getText()).toBe "line one\n line two\n"
-        expect(vimState.mode).toEqual 'command'
-
-    describe "in visual mode", ->
-      beforeEach ->
-        keydown 'v'
-
-      it "cancels whole unrecognized keybinding", ->
-        keydown 'i'
-        keydown '3' #i3 is unrecognized, should cancel the whole `i3` sequence
-        keydown 'w'
-        expect(editor.getCursorBufferPosition()).toEqual [0, 6]
-        expect(editor.getSelectedText()).toBe "line o"
-        expect(vimState.mode).toEqual 'visual'
