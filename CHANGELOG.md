@@ -1,3 +1,6 @@
+* Merged [#765](https://github.com/atom/vim-mode/pull/765) (search history repeat),
+ [#766](https://github.com/atom/vim-mode/pull/766) (remove isLinewise), and
+ [#767](https://github.com/atom/vim-mode/pull/767) (harmonize selection directions)
 * Merged [#763](https://github.com/atom/vim-mode/pull/763) (cancel ctrl-r) and
  [#764](https://github.com/atom/vim-mode/pull/764) (cancel operator pending)
 * Updated to latest replace mode patch [#573](https://github.com/atom/vim-mode/pull/573)
