@@ -23,18 +23,19 @@ describe "Operators", ->
     editor.commandModeInputView.editorElement.getModel().setText(key)
 
   describe "cancelling operations", ->
-    it "does not throw an error even if no operation is pending", ->
+    it "would throw an error when no operation is pending", ->
       # cancel operation pushes an empty input operation
-      # doing this without a pending operation throws an exception
+      # doing this without a pending operation would throw an exception
       expect(-> vimState.pushOperations(new Input(''))).toThrow()
 
+    it "cancels and cleans up properly", ->
       # make sure commandModeInputView is created
       keydown('/')
       expect(vimState.isOperatorPending()).toBe true
       editor.commandModeInputView.viewModel.cancel()
 
       expect(vimState.isOperatorPending()).toBe false
-      expect(-> editor.commandModeInputView.viewModel.cancel()).not.toThrow()
+      expect(editor.commandModeInputView).toBe undefined
 
   describe "the x keybinding", ->
     describe "on a line with content", ->
