@@ -1,3 +1,6 @@
+* Merged [#779](https://github.com/atom/vim-mode/pull/779) cursor for operator pending mode
+* Updated again to latest replace mode patch [#573](https://github.com/atom/vim-mode/pull/573)
+
 ## 0.55.3
 
 * Reverted [#764](https://github.com/atom/vim-mode/pull/764) because it broke `dd`

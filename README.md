@@ -42,6 +42,7 @@ These pull requests are merged but not in vim-mode yet.
 * [#774](https://github.com/atom/vim-mode/pull/774) cancel the c operator when a motion doesn't match
 * [#777](https://github.com/atom/vim-mode/pull/777) hide command input field better
 * [#778](https://github.com/atom/vim-mode/pull/778) add yank-to-last-character-of-line operation
+* [#779](https://github.com/atom/vim-mode/pull/779) give operator-pending mode a rectangle cursor
 
 These are not merged because they're not ready but, oh, how I wish they were.
 
