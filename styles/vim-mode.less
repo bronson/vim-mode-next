@@ -28,7 +28,15 @@ atom-panel.bottom.vim-hidden-command-mode-input {
 
 .underline-cursor(@visibility: visible) {
   border: none;
-  border-bottom: 4px solid @syntax-cursor-color;
+  border-bottom: .3em solid @syntax-cursor-color;
+  background: none;
+  visibility: @visibility;
+  opacity: 0.5;
+}
+
+.low-block-cursor(@visibility: visible) {
+  border: none;
+  border-bottom: .6em solid @syntax-cursor-color;
   background: none;
   visibility: @visibility;
   opacity: 0.5;
@@ -93,6 +101,32 @@ atom-text-editor.vim-mode.replace-mode.is-focused
 
     .cursors.blink-off .cursor {
       .underline-cursor(hidden);
+    }
+  }
+}
+
+atom-text-editor.vim-mode.operator-pending-mode
+{
+  &::shadow, // shadow-DOM enabled
+  &           // shadow-DOM disabled
+  {
+    .cursor {
+      .low-block-cursor(hidden);
+    }
+  }
+}
+
+atom-text-editor.vim-mode.operator-pending-mode.is-focused
+{
+  &::shadow, // shadow-DOM enabled
+  &           // shadow-DOM disabled
+  {
+    .cursor {
+      .low-block-cursor;
+    }
+
+    .cursors.blink-off .cursor {
+      .low-block-cursor(hidden);
     }
   }
 }
