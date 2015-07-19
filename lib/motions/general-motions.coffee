@@ -284,8 +284,6 @@ class MoveToAbsoluteLine extends MoveToLine
     cursor.moveToEndOfLine() if cursor.getBufferColumn() is 0
 
 class MoveToRelativeLine extends MoveToLine
-  operatesLinewise: true
-
   moveCursor: (cursor, count=1) ->
     {row, column} = cursor.getBufferPosition()
     cursor.setBufferPosition([row + (count - 1), 0])
@@ -316,7 +314,6 @@ class MoveToFirstCharacterOfLine extends Motion
 
 class MoveToFirstCharacterOfLineAndDown extends Motion
   operatesLinewise: true
-  operatesInclusively: true
 
   moveCursor: (cursor, count=0) ->
     _.times count-1, ->
@@ -334,8 +331,6 @@ class MoveToLastCharacterOfLine extends Motion
       @ensureCursorIsWithinLine(cursor)
 
 class MoveToLastNonblankCharacterOfLineAndDown extends Motion
-  operatesInclusively: true
-
   # moves cursor to the last non-whitespace character on the line
   # similar to skipLeadingWhitespace() in atom's cursor.coffee
   skipTrailingWhitespace: (cursor) ->
@@ -354,7 +349,6 @@ class MoveToLastNonblankCharacterOfLineAndDown extends Motion
 
 class MoveToFirstCharacterOfLineUp extends Motion
   operatesLinewise: true
-  operatesInclusively: true
 
   moveCursor: (cursor, count=1) ->
     _.times count, ->
