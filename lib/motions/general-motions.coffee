@@ -70,10 +70,11 @@ class Motion
       return if selection.isEmpty()
 
       if selection.isReversed()
+        # for backward motion, add the original starting character of the motion
         {start, end} = selection.getBufferRange()
-        end = end.translate([0, 1])
-        selection.setBufferRange([start, end])
+        selection.setBufferRange([start, [end.row, end.column + 1]])
       else
+        # for forward motion, add the ending character of the motion
         selection.cursor.moveRight()
 
   moveSelectionVisual: (selection, count, options) ->
