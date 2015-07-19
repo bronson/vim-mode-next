@@ -81,6 +81,8 @@ class Motion
       range = selection.getBufferRange()
       [oldStart, oldEnd] = [range.start, range.end]
 
+      # in visual mode, atom cursor is after the last selected character,
+      # so here put cursor in the expected place for the following motion
       wasEmpty = selection.isEmpty()
       wasReversed = selection.isReversed()
       unless wasEmpty or wasReversed
@@ -88,6 +90,7 @@ class Motion
 
       @moveCursor(selection.cursor, count, options)
 
+      # put cursor back after the last character so it is also selected
       isEmpty = selection.isEmpty()
       isReversed = selection.isReversed()
       unless isEmpty or isReversed
@@ -96,10 +99,15 @@ class Motion
       range = selection.getBufferRange()
       [newStart, newEnd] = [range.start, range.end]
 
+      # if we reversed or emptied a normal selection
+      # we need to select again the last character deselected above the motion
       if (isReversed or isEmpty) and not (wasReversed or wasEmpty)
         selection.setBufferRange([newStart, [newEnd.row, oldStart.column + 1]])
+
+      # if we re-reversed a reversed non-empty selection,
+      # we need to keep the last character of the old selection selected
       if wasReversed and not wasEmpty and not isReversed
-        selection.setBufferRange([[newStart.row, oldEnd.column - 1], newEnd])
+        selection.setBufferRange([[oldEnd.row, oldEnd.column - 1], newEnd])
 
   moveSelection: (selection, count, options) ->
     selection.modifySelection => @moveCursor(selection.cursor, count, options)
