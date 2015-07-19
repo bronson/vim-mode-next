@@ -20,7 +20,9 @@ class Motion
     value = for selection in @editor.getSelections()
       if @isLinewise()
         @moveSelectionLinewise(selection, count, options)
-      else if @isInclusive()
+      else if @vimState.mode is 'visual'
+        @moveSelectionVisual(selection, count, options)
+      else if @operatesInclusively
         @moveSelectionInclusively(selection, count, options)
       else
         @moveSelection(selection, count, options)
@@ -61,6 +63,20 @@ class Motion
       selection.setBufferRange([[newStartRow, 0], [newEndRow + 1, 0]])
 
   moveSelectionInclusively: (selection, count, options) ->
+    return @moveSelectionVisual(selection, count, options) unless selection.isEmpty()
+
+    selection.modifySelection =>
+      @moveCursor(selection.cursor, count, options)
+      return if selection.isEmpty()
+
+      if selection.isReversed()
+        {start, end} = selection.getBufferRange()
+        end = end.translate([0, 1])
+        selection.setBufferRange([start, end])
+      else
+        selection.cursor.moveRight()
+
+  moveSelectionVisual: (selection, count, options) ->
     selection.modifySelection =>
       range = selection.getBufferRange()
       [oldStart, oldEnd] = [range.start, range.end]
@@ -106,9 +122,6 @@ class Motion
       @vimState?.submode is 'linewise'
     else
       @operatesLinewise
-
-  isInclusive: ->
-    @vimState.mode is 'visual' or @operatesInclusively
 
 class CurrentSelection extends Motion
   constructor: (@editor, @vimState) ->
