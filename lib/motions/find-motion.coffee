@@ -3,6 +3,8 @@
 {Point, Range} = require 'atom'
 
 class Find extends MotionWithInput
+  operatesInclusively: true
+
   constructor: (@editor, @vimState) ->
     super(@editor, @vimState)
     @vimState.currentFind = this
