@@ -1,3 +1,5 @@
+* Updated to latest hide command input field patch [#777](https://github.com/atom/vim-mode/pull/777)
+* Merged [#780](https://github.com/atom/vim-mode/pull/780) fix cc, make S an alias for cc
 * Merged [#779](https://github.com/atom/vim-mode/pull/779) cursor for operator pending mode
 * Updated again to latest replace mode patch [#573](https://github.com/atom/vim-mode/pull/573)
 
