@@ -1,3 +1,4 @@
+Motions = require '../motions/index'
 {Operator, Delete} = require './general-operators'
 _ = require 'underscore-plus'
 settings = require '../settings'
@@ -24,7 +25,7 @@ class Insert extends Operator
     if @typingCompleted
       return unless @typedText? and @typedText.length > 0
       @editor.transact =>
-        @editor.insertText(@typedText, normalizeLineEndings: true) for i in [1..@count]
+        @editor.insertText(@typedText, normalizeLineEndings: true, autoIndent: true) for i in [1..@count]
       for cursor in @editor.getCursors()
         cursor.moveLeft() unless cursor.isAtBeginningOfLine()
     else
@@ -122,9 +123,10 @@ class Change extends Insert
       @vimState.setInsertionCheckpoint() unless @typingCompleted
 
       @setTextRegister(@register, @editor.getSelectedText())
-      if @motion.isLinewise?()
-        @editor.insertNewline()
-        @editor.moveLeft()
+      if @motion.isLinewise?() and not @typingCompleted
+        for selection in @editor.getSelections()
+          selection.insertText("\n", autoIndent: true)
+          selection.cursor.moveLeft()
       else
         for selection in @editor.getSelections()
           selection.deleteSelectedText()
@@ -136,29 +138,13 @@ class Change extends Insert
     else
       @vimState.activateCommandMode()
 
-class SubstituteLine extends Insert
+class SubstituteLine extends Change
+  standalone: true
   register: null
 
   constructor: (@editor, @vimState) ->
     @register = settings.defaultRegister()
-
-  execute: (count=1) ->
-    @vimState.setInsertionCheckpoint() unless @typingCompleted
-    @editor.moveToBeginningOfLine()
-    _.times count, =>
-      @editor.selectToEndOfLine()
-      @editor.selectRight()
-    @setTextRegister(@register, @editor.getSelectedText())
-    @editor.delete()
-    @editor.insertNewlineAbove()
-    @editor.getLastCursor().skipLeadingWhitespace()
-
-    if @typingCompleted
-      @typedText = @typedText.trimLeft()
-      return super(1)
-
-    @vimState.activateInsertMode()
-    @typingCompleted = true
+    @motion = new Motions.MoveToRelativeLine(@editor, @vimState)
 
 # Takes a transaction and turns it into a string of what was typed.
 # This class is an implementation detail of Insert
