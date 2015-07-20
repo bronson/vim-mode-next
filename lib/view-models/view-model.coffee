@@ -13,6 +13,7 @@ class ViewModel
   cancel: (view) ->
     if @vimState.isOperatorPending()
       @vimState.pushOperations(new Input(''))
+    delete @editor.commandModeInputView
 
 class Input
   constructor: (@characters) ->
