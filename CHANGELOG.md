@@ -1,3 +1,5 @@
+* [#782](https://github.com/atom/vim-mode/pull/782) fix cursor movement across beginning of selection
+
 ## 0.55.4
 
 * Merged [#783](https://github.com/atom/vim-mode/pull/783) inclusiveness fixes

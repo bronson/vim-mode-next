@@ -45,6 +45,7 @@ These pull requests are merged but not in vim-mode yet.
 * [#779](https://github.com/atom/vim-mode/pull/779) give operator-pending mode a rectangle cursor
 * [#780](https://github.com/atom/vim-mode/pull/780) fix cc, make S an alias for cc
 * [#783](https://github.com/atom/vim-mode/pull/783) inclusiveness fixes
+* [#782](https://github.com/atom/vim-mode/pull/782) fix cursor movement across beginning of selection
 
 These are not merged because they're not ready but, oh, how I wish they were.
 
@@ -56,7 +57,6 @@ These are not merged because they're not ready but, oh, how I wish they were.
 * [#764](https://github.com/atom/vim-mode/pull/764) cancel operator-pending on unrecognized keystrokes
 * [#769](https://github.com/atom/vim-mode/pull/769) add subword movement support
 * [#781](https://github.com/atom/vim-mode/pull/781) beep on unrecognized commands
-* [#782](https://github.com/atom/vim-mode/pull/782) fix cursor movement across beginning of selection
 
 Finally, these may never be merged.
 
