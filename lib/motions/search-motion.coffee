@@ -7,8 +7,6 @@ settings = require '../settings'
 utils = require '../utils'
 
 class SearchBase extends MotionWithInput
-  operatesInclusively: false
-
   constructor: (@editor, @vimState, options = {}) ->
     super(@editor, @vimState)
     @reverse = @initiallyReversed = false
