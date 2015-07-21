@@ -60,7 +60,7 @@ class Put extends Operator
 
     if type isnt 'linewise'
       @editor.moveLeft()
-    @vimState.activateCommandMode()
+    @vimState.activateNormalMode()
 
   # Private: Helper to determine if the editor is currently on the last row.
   #

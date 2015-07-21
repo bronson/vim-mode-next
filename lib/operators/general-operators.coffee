@@ -96,7 +96,7 @@ class Delete extends Operator
         else
           cursor.moveLeft() if cursor.isAtEndOfLine() and not cursor.isAtBeginningOfLine()
 
-    @vimState.activateCommandMode()
+    @vimState.activateNormalMode()
 
 #
 # It toggles the case of everything selected by the following motion
@@ -134,7 +134,7 @@ class ToggleCase extends Operator
 
             cursor.moveRight() unless point.column >= lineLength - 1
 
-    @vimState.activateCommandMode()
+    @vimState.activateNormalMode()
 
     if @motion? and @motion.isLinewise?()
       @editor.moveToPreviousWordBoundary()
@@ -152,7 +152,7 @@ class UpperCase extends Operator
       @editor.replaceSelectedText {}, (text) ->
         text.toUpperCase()
 
-    @vimState.activateCommandMode()
+    @vimState.activateNormalMode()
 
     if @motion? and @motion.isLinewise?()
       @editor.moveToPreviousWordBoundary()
@@ -170,7 +170,7 @@ class LowerCase extends Operator
       @editor.replaceSelectedText {}, (text) ->
         text.toLowerCase()
 
-    @vimState.activateCommandMode()
+    @vimState.activateNormalMode()
 
     if @motion and @motion.isLinewise?()
       @editor.moveToPreviousWordBoundary()
@@ -219,7 +219,7 @@ class Yank extends Operator
       @editor.setScrollLeft(oldLeft)
       @editor.setScrollTop(oldTop)
 
-    @vimState.activateCommandMode()
+    @vimState.activateNormalMode()
 
 #
 # It combines the current line with the following line.
@@ -236,7 +236,7 @@ class Join extends Operator
     @editor.transact =>
       _.times count, =>
         @editor.joinLines()
-    @vimState.activateCommandMode()
+    @vimState.activateNormalMode()
 
 #
 # Repeat the last operation
@@ -278,7 +278,7 @@ class Mark extends OperatorWithInput
   # Returns nothing.
   execute: ->
     @vimState.setMark(@input.characters, @editor.getCursorBufferPosition())
-    @vimState.activateCommandMode()
+    @vimState.activateNormalMode()
 
 module.exports = {
   Operator, OperatorWithInput, OperatorError, Delete, ToggleCase,
