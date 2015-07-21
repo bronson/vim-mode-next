@@ -145,7 +145,7 @@ class Change extends Insert
       @vimState.activateInsertMode()
       @typingCompleted = true
     else
-      @vimState.activateCommandMode()
+      @vimState.activateNormalMode()
 
 class SubstituteLine extends Change
   standalone: true

@@ -1,6 +1,6 @@
-class VimCommandModeInputElement extends HTMLDivElement
+class VimNormalModeInputElement extends HTMLDivElement
   createdCallback: ->
-    @className = "command-mode-input"
+    @className = "normal-mode-input"
 
   initialize: (@viewModel, opts = {}) ->
     if opts.class?
@@ -19,7 +19,7 @@ class VimCommandModeInputElement extends HTMLDivElement
 
     if opts.hidden
       parentPanelElement = @panel.getItem().parentElement
-      parentPanelElement.classList.add('vim-hidden-command-mode-input')
+      parentPanelElement.classList.add('vim-hidden-normal-mode-input')
 
     @focus()
     @handleEvents()
@@ -54,7 +54,7 @@ class VimCommandModeInputElement extends HTMLDivElement
     @panel.destroy()
 
 module.exports =
-document.registerElement("vim-command-mode-input"
+document.registerElement("vim-normal-mode-input"
   extends: "div",
-  prototype: VimCommandModeInputElement.prototype
+  prototype: VimNormalModeInputElement.prototype
 )
