@@ -1,4 +1,6 @@
-* [#782](https://github.com/atom/vim-mode/pull/782) fix cursor movement across beginning of selection
+* Merged [#787](https://github.com/atom/vim-mode/pull/787) some more command->normal mode renames
+* Updated to latest vim-mode master with [#508](https://github.com/atom/vim-mode/pull/508) (rename command mode to normal mode)
+* Merged [#782](https://github.com/atom/vim-mode/pull/782) fix cursor movement across beginning of selection
 
 ## 0.55.4
 
