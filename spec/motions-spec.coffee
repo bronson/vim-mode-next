@@ -850,7 +850,7 @@ describe "Motions", ->
       editor.setCursorScreenPosition([0, 2])
 
     describe "as a motion", ->
-      describe "in command mode", ->
+      describe "in normal mode", ->
         beforeEach ->
           keydown('g')
           keydown('g')
@@ -885,7 +885,7 @@ describe "Motions", ->
           expect(editor.getCursorScreenPosition()).toEqual [0, 1]
 
     describe "as a repeated motion", ->
-      describe "in command mode", ->
+      describe "in normal mode", ->
         beforeEach ->
           keydown('2')
           keydown('g')
