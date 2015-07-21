@@ -46,7 +46,6 @@ These pull requests are merged but not in vim-mode yet.
 * [#780](https://github.com/atom/vim-mode/pull/780) fix cc, make S an alias for cc
 * [#783](https://github.com/atom/vim-mode/pull/783) inclusiveness fixes
 * [#782](https://github.com/atom/vim-mode/pull/782) fix cursor movement across beginning of selection
-* [#787](https://github.com/atom/vim-mode/pull/787) some more command->normal mode renames
 
 These are not merged because they're not ready but, oh, how I wish they were.
 
