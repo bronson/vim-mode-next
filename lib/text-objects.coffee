@@ -215,14 +215,5 @@ class SelectAParagraph extends Paragraph
         @expandSelectionFromRow(selection, startRow, (line) => @isEmptyOrWhitespaceLine(line))
       true
 
-module.exports = {
-  TextObject,
-  SelectInsideWord,
-  SelectInsideWholeWord,
-  SelectInsideQuotes,
-  SelectInsideBrackets,
-  SelectAWord,
-  SelectAWholeWord,
-  SelectInsideParagraph,
-  SelectAParagraph
-}
+module.exports = {TextObject, SelectInsideWord, SelectInsideWholeWord, SelectInsideQuotes,
+  SelectInsideBrackets, SelectAWord, SelectAWholeWord, SelectInsideParagraph, SelectAParagraph}
