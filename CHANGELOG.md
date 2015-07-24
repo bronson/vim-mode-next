@@ -1,3 +1,20 @@
+## 0.57.0
+
+* Updated to vim-mode 0.57.0+master, closing
+  [#770](https://github.com/atom/vim-mode/pull/770),
+  [#779](https://github.com/atom/vim-mode/pull/779),
+  [#718](https://github.com/atom/vim-mode/pull/718),
+  [#721](https://github.com/atom/vim-mode/pull/721),
+  [#757](https://github.com/atom/vim-mode/pull/757),
+  [#732](https://github.com/atom/vim-mode/pull/732),
+  [#766](https://github.com/atom/vim-mode/pull/766),
+  [#765](https://github.com/atom/vim-mode/pull/765),
+  [#717](https://github.com/atom/vim-mode/pull/717),
+  [#711](https://github.com/atom/vim-mode/pull/711),
+  [#623](https://github.com/atom/vim-mode/pull/623), and
+  [#573](https://github.com/atom/vim-mode/pull/573)
+  * vim-mode-next users shouldn't notice any changes becasue they were already merged here.
+
 ## 0.56.1
 
 * vim-mode-next v0.56.0 was eaten by monsters. (strange publishing error)

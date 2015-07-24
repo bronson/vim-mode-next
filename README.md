@@ -16,33 +16,21 @@ Then, install vim-mode-next as you would any other Atom package.
 These pull requests are merged but not in vim-mode yet.
 
 * [#568](https://github.com/atom/vim-mode/pull/568) cursor motion stops and restarts insert mode
-* [#573](https://github.com/atom/vim-mode/pull/573) add replace mode!!
 * [#591](https://github.com/atom/vim-mode/pull/591) yank should not scroll
 * [#609](https://github.com/atom/vim-mode/pull/609) allow inserting with a count and changing count when repeating
 * [#611](https://github.com/atom/vim-mode/pull/611) make g~g~, gugu, and gUgU change case of the whole line
-* [#623](https://github.com/atom/vim-mode/pull/623) ensure t motion includes the character below the cursor
 * [#696](https://github.com/atom/vim-mode/pull/696) improve ip/ap paragraph text objects
-* [#711](https://github.com/atom/vim-mode/pull/711) fix p at end-of-line leaving cursor in wrong position
-* [#717](https://github.com/atom/vim-mode/pull/717) implement W (whole word) text object
-* [#718](https://github.com/atom/vim-mode/pull/718) make find (ftFT) state global
-* [#721](https://github.com/atom/vim-mode/pull/721) add ctrl-e/ctrl-y to copy in insert mode
 * [#723](https://github.com/atom/vim-mode/pull/723) add ctrl-^ to select recent tab (needs tests)
 * [#724](https://github.com/atom/vim-mode/pull/724) add gD, goto global definiton
 * [#727](https://github.com/atom/vim-mode/pull/727) add gf, goto file under cursor (needs tests)
-* [#732](https://github.com/atom/vim-mode/pull/732) make ctrl-t return from symbol
 * [#738](https://github.com/atom/vim-mode/pull/738) make tests fail if deprecated calls are made
 * [#740](https://github.com/atom/vim-mode/pull/740) fix redoing visual mode operations with `.`
-* [#757](https://github.com/atom/vim-mode/pull/757) implement substitute operator using change
 * [#758](https://github.com/atom/vim-mode/pull/758) add shortcuts for pageup/pagedown
 * [#763](https://github.com/atom/vim-mode/pull/763) esc cancels insert-mode ctrl-r
-* [#765](https://github.com/atom/vim-mode/pull/765) repeating without search history should do nothing
-* [#766](https://github.com/atom/vim-mode/pull/766) fix: isLinewise shouldn't be required
 * [#767](https://github.com/atom/vim-mode/pull/767) harmonize selection directions (reversion) on `o`
-* [#770](https://github.com/atom/vim-mode/pull/770) use onDidChangeCursorPosition to keep cursor in line
 * [#774](https://github.com/atom/vim-mode/pull/774) cancel the c operator when a motion doesn't match
 * [#777](https://github.com/atom/vim-mode/pull/777) hide command input field better
 * [#778](https://github.com/atom/vim-mode/pull/778) add yank-to-last-character-of-line operation
-* [#779](https://github.com/atom/vim-mode/pull/779) give operator-pending mode a rectangle cursor
 * [#780](https://github.com/atom/vim-mode/pull/780) fix cc, make S an alias for cc
 * [#783](https://github.com/atom/vim-mode/pull/783) inclusiveness fixes
 * [#782](https://github.com/atom/vim-mode/pull/782) fix cursor movement across beginning of selection
@@ -56,6 +44,8 @@ These are not merged because they're not ready but, oh, how I wish they were.
 * [#764](https://github.com/atom/vim-mode/pull/764) cancel operator-pending on unrecognized keystrokes
 * [#769](https://github.com/atom/vim-mode/pull/769) add subword movement support
 * [#781](https://github.com/atom/vim-mode/pull/781) beep on unrecognized commands
+* [#784](https://github.com/atom/vim-mode/pull/784) protect against edge cases with pane splits
+* [#786](https://github.com/atom/vim-mode/pull/786) fix linewise movement in wrapped lines
 
 Finally, these may never be merged.
 
@@ -64,7 +54,6 @@ Finally, these may never be merged.
 * [#506](https://github.com/atom/vim-mode/pull/506) show prefix char in command input (ignored by maintainers)
 * [#510](https://github.com/atom/vim-mode/pull/510) beep when search history is exhausted (not in vim)
 * [#653](https://github.com/atom/vim-mode/pull/653) highlight when text is yanked (implement with hook instead)
-* [#686](https://github.com/atom/vim-mode/pull/686) add vertical/horizontal split key bindings to tree-view
 * [#776](https://github.com/atom/vim-mode/pull/776) hide input outline (777 looks like a better pr)
 
 
