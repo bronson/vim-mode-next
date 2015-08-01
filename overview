@@ -15,8 +15,12 @@ require 'github_api'
 # repo = Rugged::Repository.new('.')
 # repo.fetch('atom')
 
-$open_prs = Github.new.pull_requests.all('atom', 'vim-mode', state: 'open').map { |pr| [ pr.number, pr ] }.sort.to_h
+$open_prs = {}
+Github.new.pull_requests.all('atom', 'vim-mode', state: 'open').each_page { |page|
+  $open_prs.merge! page.map { |pr| [ pr.number, pr ] }.sort.to_h
+}
 $open_prnos = $open_prs.keys
+puts "#{$open_prnos.length} open prs: #{$open_prnos}"
 
 def generate_prstring prno
   pr = $open_prs[prno]
