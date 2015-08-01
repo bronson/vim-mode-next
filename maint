@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+# This script ensures vim-mode-next is up to date
+
+# It:
+# - checks to see if new commits are ready upstream
+# - checks whether any new PRs have been opened
+# - checks for new commits on PRs that we've merged
+# - checks whether any PRs we're watching have been closed
+
+require 'git'
+require 'logger'
+
+logger = Logger.new(STDOUT)
+logger.level = Logger::INFO   # FATAL ERROR WARN INFO DEBUG
+
+g = Git.open('.', :log => logger)
+
+g.remote('atom').fetch
