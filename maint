@@ -15,20 +15,36 @@ require 'github_api'
 # repo = Rugged::Repository.new('.')
 # repo.fetch('atom')
 
-open_prs = Github.new.pull_requests.all('atom', 'vim-mode', state: 'open').map { |pr| [ pr.number, pr ] }.sort.to_h
-$open_prnos = open_prs.keys
+$open_prs = Github.new.pull_requests.all('atom', 'vim-mode', state: 'open').map { |pr| [ pr.number, pr ] }.sort.to_h
+$open_prnos = $open_prs.keys
+
+def generate_prstring prno
+  pr = $open_prs[prno]
+  "* [##{prno}](#{pr.html_url}) #{pr.title}"
+end
+
+def print_prs title, prnos, para={}
+  return if prnos.empty?
+  puts title
+  puts prnos.map { |prno|
+    para[prno] || generate_prstring(prno)
+  }.join("\n")
+end
 
 def merged para
+  print_prs "Closed Merged Pull Requests:", para.keys - $open_prnos, para
   $open_prnos -= para.keys
   para
 end
 
 def unmerged para
+  print_prs "Closed WIP Pull Requests:", para.keys - $open_prnos, para
   $open_prnos -= para.keys
   para
 end
 
 def refused para
+  print_prs "Closed Refused Pull Requests:", para.keys - $open_prnos, para
   $open_prnos -= para.keys
   para
 end
@@ -53,4 +69,4 @@ readme = File.read('README.md').split(/\n[ \t]*\n/).map! do |para|
 end.join("\n\n")
 File.write('README.md', readme)
 
-puts "prnos remaining: #{$open_prnos}"
+print_prs "Pull Requests To Add:", $open_prnos
