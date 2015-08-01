@@ -26,13 +26,9 @@ These pull requests are merged but not in vim-mode yet.
 * [#738](https://github.com/atom/vim-mode/pull/738) make tests fail if deprecated calls are made
 * [#740](https://github.com/atom/vim-mode/pull/740) fix redoing visual mode operations with `.`
 * [#758](https://github.com/atom/vim-mode/pull/758) add shortcuts for pageup/pagedown
-* [#763](https://github.com/atom/vim-mode/pull/763) esc cancels insert-mode ctrl-r
-* [#767](https://github.com/atom/vim-mode/pull/767) harmonize selection directions (reversion) on `o`
 * [#774](https://github.com/atom/vim-mode/pull/774) cancel the c operator when a motion doesn't match
 * [#777](https://github.com/atom/vim-mode/pull/777) hide command input field better
 * [#778](https://github.com/atom/vim-mode/pull/778) add yank-to-last-character-of-line operation
-* [#780](https://github.com/atom/vim-mode/pull/780) fix cc, make S an alias for cc
-* [#782](https://github.com/atom/vim-mode/pull/782) fix cursor movement across beginning of selection
 * [#783](https://github.com/atom/vim-mode/pull/783) inclusiveness fixes
 
 These are not merged because they're not ready but, oh, how I wish they were.

@@ -1,3 +1,9 @@
+* Updated to vim-mode master, closing
+  [#767](https://github.com/atom/vim-mode/pull/767),
+  [#782](https://github.com/atom/vim-mode/pull/782),
+  [#763](https://github.com/atom/vim-mode/pull/763), and
+  [#780](https://github.com/atom/vim-mode/pull/780)
+
 ## 0.57.0
 
 * Updated to vim-mode 0.57.0+master, closing
