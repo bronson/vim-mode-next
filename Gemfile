@@ -1,4 +1,4 @@
 source "https://rubygems.org"
 
-# gem "rugged"
-gem 'git'
+gem "rugged"
+gem "github_api"

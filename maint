@@ -8,12 +8,49 @@
 # - checks for new commits on PRs that we've merged
 # - checks whether any PRs we're watching have been closed
 
-require 'git'
-require 'logger'
 
-logger = Logger.new(STDOUT)
-logger.level = Logger::INFO   # FATAL ERROR WARN INFO DEBUG
+require 'rugged'
+require 'github_api'
 
-g = Git.open('.', :log => logger)
+# repo = Rugged::Repository.new('.')
+# repo.fetch('atom')
 
-g.remote('atom').fetch
+open_prs = Github.new.pull_requests.all('atom', 'vim-mode', state: 'open').map { |pr| [ pr.number, pr ] }.sort.to_h
+$open_prnos = open_prs.keys
+
+def merged para
+  $open_prnos -= para.keys
+  para
+end
+
+def unmerged para
+  $open_prnos -= para.keys
+  para
+end
+
+def refused para
+  $open_prnos -= para.keys
+  para
+end
+
+def parse_para para
+  # hash each line by its pull request number
+  Hash[
+    para.split("\n").map { |s|
+      s =~ /^\* \[#(\d+)\]/
+      [$1.to_i, s]
+    }.sort
+  ]
+end
+
+para_dispatch = [ :merged, :unmerged, :refused ]
+readme = File.read('README.md').split(/\n[ \t]*\n/).map! do |para|
+  if !para_dispatch.empty? && para =~ /^\* \[#\d+\]/
+    method(para_dispatch.shift).call(parse_para para).values.join("\n")
+  else
+    para
+  end
+end.join("\n\n")
+File.write('README.md', readme)
+
+puts "prnos remaining: #{$open_prnos}"
