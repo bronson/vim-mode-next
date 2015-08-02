@@ -1,5 +1,7 @@
 * Merged [#798](https://github.com/atom/vim-mode/pull/798) visual indent operations with a count indents multiple times
 * Merged [#808](https://github.com/atom/vim-mode/pull/808) fix replace-mode backspace behavior
+* Merged [#809](https://github.com/atom/vim-mode/pull/809) fix typo
+* Merged [#811](https://github.com/atom/vim-mode/pull/811) use arrow mouse cursor when in normal mode
 
 ## 0.57.1
 
