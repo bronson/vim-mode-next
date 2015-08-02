@@ -1,5 +1,5 @@
 * Merged [#798](https://github.com/atom/vim-mode/pull/798) visual indent operations with a count indents multiple times
-
+* Merged [#808](https://github.com/atom/vim-mode/pull/808) fix replace-mode backspace behavior
 
 ## 0.57.1
 
