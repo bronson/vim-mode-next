@@ -551,7 +551,7 @@ class VimState
   activateOperatorPendingMode: ->
     @deactivateInsertMode()
     @mode = 'operator-pending'
-    @submodule = null
+    @submode = null
     @changeModeClass('operator-pending-mode')
 
     @updateStatusBar()
