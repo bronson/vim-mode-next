@@ -1,3 +1,8 @@
+* Merged [#798](https://github.com/atom/vim-mode/pull/798) visual indent operations with a count indents multiple times
+
+
+## 0.57.1
+
 * Updated to vim-mode master, closing
   [#767](https://github.com/atom/vim-mode/pull/767),
   [#782](https://github.com/atom/vim-mode/pull/782),

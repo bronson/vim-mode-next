@@ -30,6 +30,7 @@ These pull requests are merged but not in vim-mode yet.
 * [#777](https://github.com/atom/vim-mode/pull/777) hide command input field better
 * [#778](https://github.com/atom/vim-mode/pull/778) add yank-to-last-character-of-line operation
 * [#783](https://github.com/atom/vim-mode/pull/783) inclusiveness fixes
+* [#798](https://github.com/atom/vim-mode/pull/798) visual mode indent with a count indents multiple times
 
 These are not merged because they're not ready but, oh, how I wish they were.
 
