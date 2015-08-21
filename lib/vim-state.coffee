@@ -84,7 +84,7 @@ class VimState
       'activate-insert-mode': => new Operators.Insert(@editor, this)
       'activate-replace-mode': => new Operators.ReplaceMode(@editor, this)
       'substitute': => [new Operators.Change(@editor, this), new Motions.MoveRight(@editor, this)]
-      'substitute-line': => new Operators.SubstituteLine(@editor, this)
+      'substitute-line': => [new Operators.Change(@editor, this), new Motions.MoveToRelativeLine(@editor, this)]
       'insert-after': => new Operators.InsertAfter(@editor, this)
       'insert-after-end-of-line': => new Operators.InsertAfterEndOfLine(@editor, this)
       'insert-at-beginning-of-line': => new Operators.InsertAtBeginningOfLine(@editor, this)
@@ -160,7 +160,8 @@ class VimState
       'select-inside-back-ticks': => new TextObjects.SelectInsideQuotes(@editor, '`', false)
       'select-inside-curly-brackets': => new TextObjects.SelectInsideBrackets(@editor, '{', '}', false)
       'select-inside-angle-brackets': => new TextObjects.SelectInsideBrackets(@editor, '<', '>', false)
-      'select-inside-tags': => new TextObjects.SelectInsideBrackets(@editor, '>', '<', false)
+      'select-inside-tags': => new TextObjects.SelectInsideTags(@editor, false)
+      'select-around-tags': => new TextObjects.SelectAroundTags(@editor, false)
       'select-inside-square-brackets': => new TextObjects.SelectInsideBrackets(@editor, '[', ']', false)
       'select-inside-parentheses': => new TextObjects.SelectInsideBrackets(@editor, '(', ')', false)
       'select-inside-paragraph': => new TextObjects.SelectInsideParagraph(@editor, false)
@@ -565,7 +566,7 @@ class VimState
   activateOperatorPendingMode: ->
     @deactivateInsertMode()
     @mode = 'operator-pending'
-    @submodule = null
+    @submode = null
     @changeModeClass('operator-pending-mode')
 
     @updateStatusBar()
