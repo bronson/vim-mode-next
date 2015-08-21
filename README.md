@@ -34,6 +34,7 @@ These pull requests are merged but not in vim-mode yet.
 * [#808](https://github.com/atom/vim-mode/pull/808) fix replace-mode backspace behavior
 * [#809](https://github.com/atom/vim-mode/pull/809) fix typo
 * [#811](https://github.com/atom/vim-mode/pull/811) use arrow mouse cursor when in normal mode
+* [#795](https://github.com/atom/vim-mode/pull/795) add support for SelectInsideTags and SelectAroundTags
 
 
 These are not merged because they're not ready but, oh, how I wish they were.

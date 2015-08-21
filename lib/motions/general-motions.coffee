@@ -133,7 +133,7 @@ class Motion
 class CurrentSelection extends Motion
   constructor: (@editor, @vimState) ->
     super(@editor, @vimState)
-    @lastSelection = @editor.getSelectedBufferRange()
+    @lastSelectionRange = @editor.getSelectedBufferRange()
     @wasLinewise = @isLinewise()
 
   execute: (count=1) ->
@@ -151,7 +151,7 @@ class CurrentSelection extends Motion
     _.times(count, -> true)
 
   selectLines: ->
-    {start, end} = @lastSelection
+    {start, end} = @lastSelectionRange
     lineCount = end.row - start.row
     for selection in @editor.getSelections()
       cursor = selection.cursor.getBufferPosition()
