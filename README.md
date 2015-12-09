@@ -4,6 +4,13 @@ Inspired by the [linux-next branch](https://lwn.net/Articles/289013/), vim-mode-
 an integration area for mostly-finished [vim-mode pull requests](https://github.com/atom/vim-mode/pulls).
 
 
+## On Hold
+
+I'm pretty psyched by vim-mode-plus so I don't see much point in testing
+vim-mode patches anymore.  It's been a good run, 
+thanks to everyone that used it and filed issues.
+
+
 ## Installing
 
 First, disable vim-mode and restart Atom.  vim-mode and vim-mode-next are, unsurprisingly, incompatible.

@@ -1,3 +1,7 @@
+## 0.57.3
+
+* Add a note to the README and package.json that vim-mode-plus is the way to go.
+
 ## 0.57.2
 
 * Merged [#798](https://github.com/atom/vim-mode/pull/798) visual indent operations with a count indents multiple times
