@@ -1,4 +1,4 @@
-## Vim Mode Next [![Build Status](https://travis-ci.org/bronson/vim-mode-next.svg?branch=master)](https://travis-ci.org/bronson/vim-mode-next)
+## Vim Mode Next
 
 Inspired by the [linux-next branch](https://lwn.net/Articles/289013/), vim-mode-next is
 an integration area for mostly-finished [vim-mode pull requests](https://github.com/atom/vim-mode/pulls).
