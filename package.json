@@ -1,7 +1,7 @@
 {
   "name": "vim-mode-next",
   "main": "./lib/vim-mode",
-  "version": "0.57.2",
+  "version": "0.57.3",
   "description": "Deprecated in favor of vim-mode-plus",
   "license": "MIT",
   "repository": "https://github.com/bronson/vim-mode-next",
