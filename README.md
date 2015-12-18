@@ -6,9 +6,9 @@ an integration area for mostly-finished [vim-mode pull requests](https://github.
 
 ## On Hold
 
-I'm pretty psyched by vim-mode-plus so I don't see much point in testing
-vim-mode patches anymore.  It's been a good run, 
-thanks to everyone that used it and filed issues.
+I'm pretty psyched by vim-mode-plus so I don't have much interest in testing vim-mode patches anymore.
+We tested and stabilized a bunch of patches.
+thanks to everyone that helped out and filed issues.
 
 
 ## Installing
